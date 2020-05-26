@@ -6,7 +6,10 @@ import {RISK_FORM_ACTION_TYPES, riskFormActions} from "./actions";
 export function* addRisk(action) {
     try {
         const {risk} = action;
-        const riskDetails = yield call(fetchApi, "/risk",risk);
+        const riskDetails = yield call(fetchApi, "/risk",{
+            method: "POST",
+            body: JSON.stringify(risk),
+        });
         yield put(riskFormActions.postRiskSuccess());
     } catch (e) {
         yield put(riskFormActions.postRiskError(e));

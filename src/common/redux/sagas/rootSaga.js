@@ -9,10 +9,10 @@ import watchRiskFormSaga from "../../../containers/Forms/RiskFormContainer/Redux
 export default function* rootSaga() {
     yield all([
         fork(watchRiskMatrixSaga),
-        fork(watchActivityListSaga()),
-        fork(watchPortfolioListSaga()),
-        fork(watchProjectListSaga()),
-        fork(watchRiskListSaga()),
-        fork(watchRiskFormSaga())
+        fork(watchActivityListSaga),
+        fork(watchPortfolioListSaga),
+        fork(watchProjectListSaga),
+        fork(watchRiskListSaga),
+        fork(watchRiskFormSaga)
     ]);
 }
