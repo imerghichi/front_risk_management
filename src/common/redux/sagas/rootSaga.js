@@ -4,6 +4,7 @@ import watchActivityListSaga from "../../../containers/ActivityList Container/re
 import watchPortfolioListSaga from "../../../containers/PortfolioListContainer/redux/saga";
 import watchProjectListSaga from "../../../containers/ProjectListContainer/redux/saga";
 import watchRiskListSaga from "../../../containers/RiskListContainer/redux/saga";
+import watchRiskFormSaga from "../../../containers/Forms/RiskFormContainer/Redux/saga";
 
 export default function* rootSaga() {
     yield all([
@@ -11,6 +12,7 @@ export default function* rootSaga() {
         fork(watchActivityListSaga()),
         fork(watchPortfolioListSaga()),
         fork(watchProjectListSaga()),
-        fork(watchRiskListSaga())
+        fork(watchRiskListSaga()),
+        fork(watchRiskFormSaga())
     ]);
 }
