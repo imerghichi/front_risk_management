@@ -12,6 +12,19 @@ export function* getActivityListSaga() {
     }
 }
 
+export function* addActivity(action) {
+    try {
+        const {activity} = action;
+        const riskDetails = yield call(fetchApi, "/activity",{
+            method: "POST",
+            body: JSON.stringify(activity),
+        });
+        yield put(activityListActions.postActivitySuccess());
+    } catch (e) {
+        yield put(activityListActions.postActivityError(e));
+    }
+}
+
 function* watchActivityListSaga() {
     yield all([
         takeLatest(ACTIVITY_LIST_ACTION_TYPES.GET_ACTIVITY_LIST, getActivityListSaga)

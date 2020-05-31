@@ -14,7 +14,13 @@ function activityListReducer(state = initalState, action) {
         case ACTIVITY_LIST_ACTION_TYPES.GET_ACTIVITY_LIST_SUCCESS:
             return { ...state, success: true, activityList: action.activityList, loading: false, error: null };
         case ACTIVITY_LIST_ACTION_TYPES.GET_ACTIVITY_LIST_ERROR:
-            return { ...state, error: action.error, success: false, loading: false }
+            return { ...state, error: action.error, success: false, loading: false };
+        case ACTIVITY_LIST_ACTION_TYPES.ADD_ACTIVITY:
+            return {...state, loading: true};
+        case ACTIVITY_LIST_ACTION_TYPES.ADD_ACTIVITY_SUCCESS:
+            return {...state, loading: false, success: true};
+        case ACTIVITY_LIST_ACTION_TYPES.ADD_ACTIVITY_ERROR:
+            return {...state,loading: false, error: action.error};
         default:
             return state;
     }
