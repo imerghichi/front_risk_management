@@ -4,8 +4,6 @@ import watchActivityListSaga from "../../../containers/ActivityList Container/re
 import watchPortfolioListSaga from "../../../containers/PortfolioListContainer/redux/saga";
 import watchProjectListSaga from "../../../containers/ProjectListContainer/redux/saga";
 import watchRiskListSaga from "../../../containers/RiskListContainer/redux/saga";
-import watchRiskFormSaga from "../../../containers/Forms/RiskFormContainer/Redux/saga";
-import watchActivityFormSaga from "../../../containers/Forms/ActivityFormContainer/redux/saga";
 
 export default function* rootSaga() {
     yield all([

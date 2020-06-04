@@ -7,7 +7,7 @@ import {useHistory} from "react-router";
 import {activityListErrorSelector, activityListLoadingSelector, activityListSelector} from "./redux/selectors";
 import {activityListActions} from "./redux/actions";
 
-function RiskListContainer() {
+function ActivityListContainer() {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -21,6 +21,9 @@ function RiskListContainer() {
 
     const editAction = (id) => history.push("/'edit'");
     const deleteAction = (id) =>history.push("/'delete");
+    const applyRejectionMethod = (id) =>history.push("/rejection");
+    const addRisk = (id) =>history.push("/addRisk");
+    const showRisk = (id)=> history.push("/showRisk");
 
     return (
         <Loader loading={loading} error={error}>
@@ -28,9 +31,12 @@ function RiskListContainer() {
                 activityList={activityList}
                 editAction={editAction}
                 deleteAction={deleteAction}
+                applyRejectionMethod={applyRejectionMethod}
+                addRisk={addRisk}
+                showRisk={showRisk}
             />
         </Loader>
     );
 }
 
-export default RiskListContainer;
+export default ActivityListContainer;

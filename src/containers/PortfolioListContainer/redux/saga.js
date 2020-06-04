@@ -1,7 +1,6 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import fetchApi from "../../../common/networking";
 import { portfolioListActions, PORTFOLIO_LIST_ACTION_TYPES } from './actions';
-import {portfolioFormActions} from "../../Forms/PortfolioFormContainer/redux/actions";
 
 
 export function* getPortfolioListSaga() {

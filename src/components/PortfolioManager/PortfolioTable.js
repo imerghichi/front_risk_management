@@ -7,16 +7,13 @@ function PortfolioMangerTable({ portfolioList, editAction, deleteAction }) {
         <Table striped bordered hover>
             <thead>
             <tr>
-                <th>#</th>
+                <th>Id</th>
                 <th>Description</th>
-                <th>Probabilité</th>
-                <th>Vuhura</th>
-                <th>S impact</th>
-                <th>Origin</th>
-                <th>Type</th>
-                <th>Carte ?</th>
-                <th>Owner level ?</th>
-                <th>Visibilité</th>
+                <th>Investissement inititial</th>
+                <th>Taux d'inflation</th>
+                <th>Moyenne</th>
+                <th>Déviation Standard</th>
+                <th>Taux d'inflation</th>
             </tr>
             </thead>
             <tbody>
@@ -24,8 +21,6 @@ function PortfolioMangerTable({ portfolioList, editAction, deleteAction }) {
                 <td>1</td>
                 <td>Mark</td>
                 <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
                 <td>@mdo</td>
                 <td>@mdo</td>
                 <td>@mdo</td>
