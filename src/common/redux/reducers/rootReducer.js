@@ -1,10 +1,10 @@
 import { connectRouter } from 'connected-react-router'
 import { combineReducers } from 'redux'
-import riskMatrixReducer from "../../../containers/RiskManagerContainer/redux/reducer";
+import riskListReducer from "../../../containers/RiskListContainer/redux/reducer";
 
 const rootReducer = (history) => combineReducers({
     router: connectRouter(history),
-    riskMatrix: riskMatrixReducer,
+    riskList: riskListReducer,
 });
 
 export default rootReducer;

@@ -12,6 +12,7 @@ function Layout({ children }) {
                     <Nav.Link href="/documentation">Documentation</Nav.Link>
                 </Nav>
             </Navbar>
+
             <Container style={{marginTop: "30px"}}>
                 {children}
             </Container>

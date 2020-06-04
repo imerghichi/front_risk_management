@@ -1,29 +1,27 @@
-import { RISK_LIST_ACTION_TYPES } from "./actions";
+import {TEAM_MEMBER_LIST_ACTION_TYPES} from "./actions";
 
 const initalState = {
-    riskList: {},
+    teamMemberList: {},
     loading: false,
     success: false,
     error: null
 };
 
-function riskListReducer(state = initalState, action) {
+function teamMemberListReducer(state = initalState, action) {
     switch (action.type) {
-        case RISK_LIST_ACTION_TYPES.GET_RISK_LIST:
+        case TEAM_MEMBER_LIST_ACTION_TYPES.GET_TEAM_MEMBER_LIST:
             return { ...state, loading: true, error: null, success: false };
-        case RISK_LIST_ACTION_TYPES.GET_RISK_LIST_SUCCESS:
+        case TEAM_MEMBER_LIST_ACTION_TYPES.GET_TEAM_MEMBER_LIST_SUCCESS:
             return { ...state, success: true, riskList: action.riskList, loading: false, error: null };
-        case RISK_LIST_ACTION_TYPES.GET_RISK_LIST_ERROR:
+        case TEAM_MEMBER_LIST_ACTION_TYPES.GET_TEAM_MEMBER_LIST_ERROR:
             return { ...state, error: action.error, success: false, loading: false };
-        case RISK_LIST_ACTION_TYPES.ADD_RISK:
+        case TEAM_MEMBER_LIST_ACTION_TYPES.ADD_TEAM_MEMBER:
             return {...state, loading: true};
-        case RISK_LIST_ACTION_TYPES.ADD_RISK_SUCCESS:
+        case TEAM_MEMBER_LIST_ACTION_TYPES.ADD_TEAM_MEMBER_SUCCESS:
             return {...state, loading: false, success: true};
-        case RISK_LIST_ACTION_TYPES.ADD_RISK_ERROR:
+        case TEAM_MEMBER_LIST_ACTION_TYPES.ADD_TEAM_MEMBER_ERROR:
             return {...state,loading: false, error: action.error};
         default:
             return state;
     }
 }
-
-export default riskListReducer;
