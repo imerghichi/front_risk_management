@@ -66,7 +66,7 @@ function FaultTreeForm({ submitHandler }) {
                     />
                 </Form.Group>
             </Form.Row>
-
+            <Button onClick={() => submitHandler(formState)}>Envoyer</Button>
         </Form>
     );
 }

@@ -99,6 +99,7 @@ function MilestoneForm({ submitHandler }) {
                     />
                 </Form.Group>
             </Form.Row>
+            <Button onClick={() => submitHandler(formState)}>Ajouter</Button>
         </Form>
     );
 }

@@ -6,6 +6,7 @@ import ProjectListTable from "../../components/Project/ProjectListTable";
 import {useHistory} from "react-router";
 import { projectListSelector, projectListLoadingSelector, projectListErrorSelector } from './redux/selectors';
 import { projectListActions } from './redux/actions';
+import ProjectManagerTable from "../../components/ProjectManager/ProjectManagerTable";
 
 function ProjectListContainer() {
     const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function ProjectListContainer() {
 
     return (
         <Loader loading={loading} error={error}>
-            <ProjectListTable
+            <ProjectManagerTable
                 projectList={projectList}
                 editAction={editAction}
                 deleteAction = {deleteAction}

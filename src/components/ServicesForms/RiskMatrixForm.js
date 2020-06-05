@@ -2,21 +2,22 @@ import {useState} from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 
-function TeamMemberForm({ submitHandler }) {
+function RiskMatrixForm({ submitHandler }) {
     const formInitialState = {
-        first_name : "",
-        last_name : "",
+        probability_interval_division : 4,
+        capacity: 4,
+
     };
 
     const [formState, updateFormState] = useState(formInitialState);
     const handleUpdate = (fieldKey, newValue) => {
         const newFormState = { ...formState};
         switch (fieldKey) {
-            case "first_name":
-                newFormState.first_name = newValue;
+            case "probability_interval_division":
+                newFormState.probability_interval_division = newValue;
                 break;
-            case "last_name":
-                newFormState.last_name = newValue;
+            case "capacity":
+                newFormState.capacity = newValue;
                 break;
             default:
                 break;
@@ -28,26 +29,24 @@ function TeamMemberForm({ submitHandler }) {
         <Form noValidate validated={true}>
             <Form.Row>
                 <Form.Group as = {Col} md="4">
-                    <Form.Label>Prénom: </Form.Label>
+                    <Form.Label>Entrer le nombre des divisions :</Form.Label>
                     <Form.Control
-                        required
-                        type="text"
-                        onBlur = {(e)=>handleUpdate("first_name",e.target.value)}
+                        type="number"
+                        onBlur = {(e)=>handleUpdate("probability_interval_division",e.target.value)}
                     />
                 </Form.Group>
             </Form.Row>
             <Form.Row>
                 <Form.Group as = {Col} md="4">
-                    <Form.Label>Nom:</Form.Label>
+                    <Form.Label>Entrer la capacité:</Form.Label>
                     <Form.Control
-                        type="text"
-                        onBlur = {(e)=>handleUpdate("last_name",e.target.value)}
+                        type="number"
+                        onBlur = {(e)=>handleUpdate("capacity",e.target.value)}
                     />
                 </Form.Group>
             </Form.Row>
-            <Button onClick={() => submitHandler(formState)}>Envoyer</Button>
+            <Button onClick={() => submitHandler(formState)}>Etablir matrice du risque</Button>
         </Form>
     );
 }
-
-export default TeamMemberForm;
+export default RiskMatrixForm;

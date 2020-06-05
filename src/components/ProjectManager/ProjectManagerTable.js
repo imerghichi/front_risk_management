@@ -2,7 +2,7 @@ import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import React from "react";
 
-function ProjectManagerTAble({ projectTable, editAction, deleteAction }) {
+function ProjectManagerTable({ projectTable, editAction, deleteAction }) {
     return (
         <Table striped bordered hover>
             <thead>
@@ -45,4 +45,4 @@ function ProjectManagerTAble({ projectTable, editAction, deleteAction }) {
     );
 }
 
-export default ProjectManagerTAble;
+export default ProjectManagerTable;

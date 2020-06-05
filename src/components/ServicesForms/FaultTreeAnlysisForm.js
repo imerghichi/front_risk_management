@@ -2,18 +2,17 @@ import {useState} from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 
-function ResponseForm({ submitHandler }) {
+function FaultTreeAnalysisForm({ submitHandler }) {
     const formInitialState = {
-        type : "",
+        usedMethod : "",
     };
 
     const [formState, updateFormState] = useState(formInitialState);
     const handleUpdate = (fieldKey, newValue) => {
         const newFormState = { ...formState};
         switch (fieldKey) {
-            case "type":
-                newFormState.type = newValue;
-                break;
+            case "usedMethod":
+                newFormState.usedMethod = newValue;
             default:
                 break;
         }
@@ -24,21 +23,19 @@ function ResponseForm({ submitHandler }) {
         <Form noValidate validated={true}>
             <Form.Row>
                 <Form.Group as = {Col} md="4">
-                    <Form.Label>Operateur: </Form.Label>
+                    <Form.Label>Méthode Utilisée: </Form.Label>
                     <Form.Control
                         as="select"
-                        value={formState.type}
-                        onChange={(e) =>handleUpdate("type", e.target.value)}
+                        value={formState.usedMethod}
+                        onChange={(e) =>handleUpdate("usedMethod", e.target.value)}
                     >
-                        <option value="ContingencyPlan">Plan d'urgence</option>
-                        <option value="MitigationPlan">Plan d'atténuation</option>
-                        <option value="StrategicPlan">Plan stratégique</option>
-                        <option value="NonPlanResponse">Autres/sans plan</option>
+                        <option value="Zadeh">Zadeh</option>
+                        <option value="Prod_probor">PROD/PROBOR</option>
                     </Form.Control>
                 </Form.Group>
             </Form.Row>
-            <Button onClick={() => submitHandler(formState)}>valider</Button>
+            <Button onClick={() => submitHandler(formState)}>Choisir</Button>
         </Form>
     );
 }
-export default ResponseForm;
+export default FaultTreeAnalysisForm;

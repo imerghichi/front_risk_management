@@ -24,7 +24,7 @@ function RejectionSamplerForm({ submitHandler }) {
         <Form noValidate validated={true}>
             <Form.Row>
                 <Form.Group as = {Col} md="4">
-                    <Form.Label>Probabilité:</Form.Label>
+                    <Form.Label>Seuil:</Form.Label>
                     <Form.Control
                         type="number"
                         step="0.01"
@@ -32,6 +32,7 @@ function RejectionSamplerForm({ submitHandler }) {
                     />
                 </Form.Group>
             </Form.Row>
+            <Button onClick={() => submitHandler(formState)}>Envoyer</Button>
         </Form>
     );
 }

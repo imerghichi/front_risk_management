@@ -2,10 +2,10 @@ import React, {useEffect} from 'react';
 import '../../assets/css/App.css';
 import {useDispatch, useSelector} from "react-redux";
 import Loader from "../../components/Loader/Loader";
-import PortfolioListTable from "../../components/portfoliolioListTable";
 import {useHistory} from "react-router";
 import {portfolioListErrorSelector, portfolioListLoadingSelector, portfolioListSelector} from "./redux/selectors";
 import {portfolioListActions} from "./redux/actions";
+import PortfolioMangerTable from "../../components/PortfolioManager/PortfolioTable";
 
 function PortfolioListContainer() {
     const dispatch = useDispatch();
@@ -23,7 +23,7 @@ function PortfolioListContainer() {
     const deleteAction = (id) =>history.push("/delete");
     return (
         <Loader loading={loading} error={error}>
-            <PortfolioListTable
+            <PortfolioMangerTable
                 portfolioList = {portfolioList}
                 editAction = {editAction}
                 deleteAction = {deleteAction}

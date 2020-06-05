@@ -32,4 +32,4 @@ function TeamMemberListContainer() {
     );
 }
 
-export default RiskListContainer;
+export default TeamMemberListContainer;

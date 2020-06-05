@@ -37,6 +37,7 @@ function OtherResponseForm({ submitHandler }) {
                     </Form.Control>
                 </Form.Group>
             </Form.Row>
+            <Button onClick={() => submitHandler(formState)}>Valider</Button>
         </Form>
     );
 }

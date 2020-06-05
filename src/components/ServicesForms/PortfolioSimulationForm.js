@@ -2,7 +2,7 @@ import {useState} from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 
-function RejectionSamplerForm({ submitHandler }) {
+function PortfolioSimulationForm({ submitHandler }) {
     const formInitialState = {
         number_of_simulations : 3,
         number_of_years:1,
@@ -45,7 +45,8 @@ function RejectionSamplerForm({ submitHandler }) {
                     />
                 </Form.Group>
             </Form.Row>
+            <Button onClick={() => submitHandler(formState)}>Simuler</Button>
         </Form>
     );
 }
-export default FaultTreeForm;
+export default PortfolioSimulationForm;
