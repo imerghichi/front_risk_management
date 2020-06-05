@@ -12,7 +12,7 @@ function teamMemberListReducer(state = initalState, action) {
         case TEAM_MEMBER_LIST_ACTION_TYPES.GET_TEAM_MEMBER_LIST:
             return { ...state, loading: true, error: null, success: false };
         case TEAM_MEMBER_LIST_ACTION_TYPES.GET_TEAM_MEMBER_LIST_SUCCESS:
-            return { ...state, success: true, riskList: action.riskList, loading: false, error: null };
+            return { ...state, success: true, teamMemberList: action.teamMemberList, loading: false, error: null };
         case TEAM_MEMBER_LIST_ACTION_TYPES.GET_TEAM_MEMBER_LIST_ERROR:
             return { ...state, error: action.error, success: false, loading: false };
         case TEAM_MEMBER_LIST_ACTION_TYPES.ADD_TEAM_MEMBER:

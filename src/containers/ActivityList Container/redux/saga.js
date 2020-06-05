@@ -15,7 +15,7 @@ export function* getActivityListSaga() {
 export function* addActivity(action) {
     try {
         const {activity} = action;
-        const riskDetails = yield call(fetchApi, "/activity",{
+        const activityDetails = yield call(fetchApi, "/activity",{
             method: "POST",
             body: JSON.stringify(activity),
         });

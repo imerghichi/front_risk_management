@@ -2,6 +2,7 @@ import React from "react";
 import {Container, Nav, Navbar} from "react-bootstrap";
 
 function Layout({ children }) {
+
     return (
         <Container fluid>
             <Navbar bg="dark" variant="dark">
