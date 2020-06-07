@@ -1,0 +1,20 @@
+import React from 'react';
+import {useDispatch} from "react-redux";
+import {projectListActions} from "./redux/actions";
+import ProjectManagerForm from "../../components/ProjectManager/ProjectManagerForm";
+
+function ProjectFormContainer() {
+    const dispatch = useDispatch();
+
+    const submitHandler = (vals) => {
+        dispatch(projectListActions.postProject(vals));
+    };
+
+    return (
+        <ProjectManagerForm
+            submitHandler={submitHandler}
+        />
+    );
+}
+
+export default ProjectFormContainer;

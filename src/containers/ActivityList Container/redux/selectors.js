@@ -20,3 +20,15 @@ export const activityListLoadingSelector = createSelector(
     state => state[storeName],
     state => state.loading
 );
+export const riskforactivitySelector = createSelector(
+        state => state[storeName],
+        state =>state.riskListActivity
+) ;
+export const riskforactivityErrorSelector = createSelector(
+    state => state[storeName],
+    state =>state.error
+) ;
+export const riskforactivityLoadingSelector = createSelector(
+    state => state[storeName],
+    state =>state.loading
+) ;

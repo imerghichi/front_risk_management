@@ -25,9 +25,21 @@ export function* addActivity(action) {
     }
 }
 
+export function* getRiskforActivity(){
+    try {
+        const response = yield call(fetchApi, "/riskactivity");
+        yield put(activityListActions.getRiskforActivitySuccess(response));
+    } catch (e) {
+        yield put(activityListActions.getActivityListError(e));
+
+    }
+}
+
 function* watchActivityListSaga() {
     yield all([
-        takeLatest(ACTIVITY_LIST_ACTION_TYPES.GET_ACTIVITY_LIST, getActivityListSaga)
+        takeLatest(ACTIVITY_LIST_ACTION_TYPES.GET_ACTIVITY_LIST, getActivityListSaga),
+        takeLatest(ACTIVITY_LIST_ACTION_TYPES.ADD_ACTIVITY,addActivity),
+        takeLatest(ACTIVITY_LIST_ACTION_TYPES.GET_RISK_FOR_ACTIVITY,getRiskforActivity)
     ]);
 }
 

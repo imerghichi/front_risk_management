@@ -1,6 +1,7 @@
 import { ACTIVITY_LIST_ACTION_TYPES } from "./actions";
 
 const initalState = {
+    riskListActivity:{},
     activityList: {},
     loading: false,
     success: false,
@@ -21,7 +22,13 @@ function activityListReducer(state = initalState, action) {
             return {...state, loading: false, success: true};
         case ACTIVITY_LIST_ACTION_TYPES.ADD_ACTIVITY_ERROR:
             return {...state,loading: false, error: action.error};
-        default:
+        case ACTIVITY_LIST_ACTION_TYPES.GET_RISK_FOR_ACTIVITY:
+            return { ...state, loading: true, error: null, success: false};
+        case ACTIVITY_LIST_ACTION_TYPES.GET_RISK_FOR_ACTIVITY_SUCCESS:
+            return {...state, loading: false,riskListActivity: action.riskListActivity ,error: null, success: true}
+        case ACTIVITY_LIST_ACTION_TYPES.GET_RISK_FOR_ACTIVITY_ERROR:
+            return {...state, loading: false, error: action.error, success: false};
+            default:
             return state;
     }
 }
