@@ -7,11 +7,26 @@ import { projectListSelector, projectListLoadingSelector, projectListErrorSelect
 import { projectListActions } from './redux/actions';
 import ProjectManagerTable from "../../components/ProjectManager/ProjectManagerTable";
 
+const mock =[
+    {
+        "id_project": 1,
+        "teamMember":[
+            {
+                id:1
+            }
+        ]
+    },
+    {
+        "id_project": 2,
+
+    }
+];
 function ProjectListContainer() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const projectList = useSelector(projectListSelector);
+    const projectList = mock;
+    // const projectList = useSelector(projectListSelector);
     const loading = useSelector(projectListLoadingSelector);
     const error = useSelector(projectListErrorSelector);
 
@@ -29,7 +44,7 @@ function ProjectListContainer() {
     const simulatePortfolio = (id) => history.push("/simulate/"+id);
 
     return (
-        <Loader loading={loading}  >
+        <Loader loading={loading} noData={projectList && projectList.length === 0}>
             <ProjectManagerTable
                 projectList={projectList}
                 editAction={editAction}

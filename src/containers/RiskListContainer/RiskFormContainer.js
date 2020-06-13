@@ -6,8 +6,8 @@ import RiskManagerForm from "../../components/RiskManager/RiskManagerForm";
 function RiskFormContainer() {
     const dispatch = useDispatch();
 
-    const submitHandler = (vals) => {
-        dispatch(riskListActions.postRisk(vals));
+    const submitHandler = (riskData) => {
+        dispatch(riskListActions.postRisk(riskData));
     };
 
     return (

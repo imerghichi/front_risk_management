@@ -14,11 +14,11 @@ export function* getRiskListSaga() {
 
 
 export function* addRisk(action) {
-    const { id, body } = action.payload;
+    const { riskData } = action;
     try {
-        const riskDetails = yield call(fetchApi, "http://localhost:8080/postrisk/" + id,{
+        yield call(fetchApi, "/postrisk", {
             method: "POST",
-            body: JSON.stringify(body),
+            body: JSON.stringify(riskData),
         });
         yield put(riskListActions.postRiskSuccess());
     } catch (e) {

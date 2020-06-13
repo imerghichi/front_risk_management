@@ -17,21 +17,6 @@ import PortfolioFormContainer from "../../containers/PortfolioListContainer/Port
 import PortfolioSimulationForm from "../ServicesForms/PortfolioSimulationForm";
 
 function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks, addTeamMember, addTasks, addPortfolio, simulate}) {
-    const mock =[
-        {
-            "id_project": 1,
-            "teamMember":[
-                {
-                    id:1
-                }
-            ]
-        },
-        {
-            "id_project": 2,
-
-        }
-    ]
-
     const [modalTeamMember, setModalTeamMember] = useState(false);
     const handleCloseTM = () => setModalTeamMember(false);
     const handleShowTM = () =>setModalTeamMember(true);
@@ -68,7 +53,7 @@ function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks,
             </tr>
             </thead>
             <tbody>
-            {mock.map((element) =>{
+            {projectList.map((element) =>{
                 return (
                     <tr>
                         <td>{element.id_project}</td>

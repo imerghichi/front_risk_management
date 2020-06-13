@@ -13,9 +13,9 @@ function Routes() {
         <Router history={history}>
             <Layout>
                 <Switch>
+                    <Route exact path="/project" component={ProjectListContainer} />
                     <Route exact path="/taxo/" component={TaxonomieChart}/>
                     <Route exact path="/faultTreeForm/" component={FaultTreeFormContainer}/>
-                    <Route exact path="/project/" component={ProjectListContainer} />
                     <Route exact path="/showTasks/" component={ActivityListContainer}/>
                     <Route exact path="/addRisktoavctivity/" component={RiskFormContainer}/>
                 </Switch>

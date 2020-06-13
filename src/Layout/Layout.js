@@ -8,8 +8,8 @@ function Layout({ children }) {
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="/">Risk Manager</Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Nav.Link href="/">Dashboard</Nav.Link>
-                    <Nav.Link href="/configuration">Configuration</Nav.Link>
+                    <Nav.Link href="/project">Projets</Nav.Link>
+                    <Nav.Link href="/p">Configuration</Nav.Link>
                     <Nav.Link href="/documentation">Documentation</Nav.Link>
                 </Nav>
             </Navbar>
