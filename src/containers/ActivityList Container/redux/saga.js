@@ -5,7 +5,7 @@ import { activityListActions, ACTIVITY_LIST_ACTION_TYPES } from './actions';
 
 export function* getActivityListSaga() {
     try {
-        const response = yield call(fetchApi, "localhost:8080/activity");
+        const response = yield call(fetchApi, "/activity");
         yield put(activityListActions.getActivityListSuccess(response));
     } catch (e) {
         yield put(activityListActions.getActivityListError(e));
@@ -13,7 +13,7 @@ export function* getActivityListSaga() {
 }
 export function* getRisksforActivitytSaga() {
     try {
-        const response = yield call(fetchApi, "localhost:8080/activity");
+        const response = yield call(fetchApi, "/activity");
         yield put(activityListActions.getRiskforActivitySuccess(response));
     } catch (e) {
         yield put(activityListActions.getRiskforActivityError(e));
@@ -23,7 +23,7 @@ export function* getRisksforActivitytSaga() {
 export function* addActivity(action) {
     try {
         const {activity} = action;
-        const activityDetails = yield call(fetchApi, "localhost:8080/",{
+        const activityDetails = yield call(fetchApi, "/",{
             method: "POST",
             body: JSON.stringify(activity),
         });
@@ -35,7 +35,7 @@ export function* addActivity(action) {
 export function* deleteActivity(action) {
     try {
         const {activity} = action;
-        const activityDetails = yield call(fetchApi, "localhost:8080/",{
+        const activityDetails = yield call(fetchApi, "/",{
             method: "DELETE",
             body: JSON.stringify(activity),
         });

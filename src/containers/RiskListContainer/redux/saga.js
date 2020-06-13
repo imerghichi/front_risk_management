@@ -4,7 +4,7 @@ import fetchApi from "../../../common/networking";
 
 export function* getRiskListSaga() {
     try {
-        const response = yield call(fetchApi, "http://localhost:8080/aproject/2", {
+        const response = yield call(fetchApi, "/aproject/2", {
             method: "GET"});
         yield put(riskListActions.getRiskListSuccess(response));
     } catch (e) {

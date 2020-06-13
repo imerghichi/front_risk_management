@@ -34,7 +34,12 @@ function ProjectListContainer() {
         dispatch(projectListActions.getProjectList());
     }, [dispatch]);
 
-    const deleteAction = (id) => dispatch(projectListActions.deleteProject(id));
+    const deleteAction = (id) => {
+        const confirmed = window.confirm("Êtes-vous sûr de vouloir supprimer ce projet ?");
+        if (confirmed) {
+            dispatch(projectListActions.deleteProject(id));
+        }
+    };
 
     const editAction = (id) => history.push("/editproject/"+id);
     const showTasks =(id) =>history.push("/showTasks/"+id);
