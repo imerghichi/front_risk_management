@@ -14,7 +14,7 @@ import Table from "react-bootstrap/Table";
 import React, {useState} from "react";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
-function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks, showPortfolio, addTeamMember, addTasks, addPortfolio, simulate}) {
+function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks, addTeamMember, addTasks, addPortfolio, simulate}) {
     const mock =[
         {
             "id_project": 1,
@@ -98,10 +98,7 @@ function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks,
                                 </Modal.Footer>
                             </Modal>
                         </td>
-                        <td>
-                            <Button  onClick={handleShowPF}>Portfolio</Button>
 
-                        </td>
                         <td>
                             <DropdownButton id="dropdown-basic-button" title="Tache">
                                 <DropdownItem as = "button" onClick ={()=>  showTasks(element.id_project)}>

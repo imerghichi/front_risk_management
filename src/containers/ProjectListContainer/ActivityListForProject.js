@@ -3,34 +3,38 @@ import '../../assets/css/App.css';
 import {useDispatch, useSelector} from "react-redux";
 import Loader from "../../components/Loader/Loader";
 import {useHistory} from "react-router";
-import {activityListErrorSelector, activityListLoadingSelector, activityListSelector} from "./redux/selectors";
-import {activityListActions} from "./redux/actions";
+import {
+    projectListSelector,
+    projectListLoadingSelector,
+    projectListErrorSelector,
+    activitiesforporjectSelector, activitiesforprojectErrorSelector
+} from './redux/selectors';
+import { projectListActions } from './redux/actions';
+import ProjectManagerTable from "../../components/ProjectManager/ProjectManagerTable";
+import {activityListLoadingSelector} from "../ActivityList Container/redux/selectors";
 import ActivityTable from "../../components/ActivityManager/ActivityTable";
-import {render} from "react-dom";
 
-function ActivityListContainer() {
+function ActivityListForProject() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-
-    const activityList = useSelector(activityListSelector);
+    const activitiesforProject = useSelector(activitiesforporjectSelector);
     const loading = useSelector(activityListLoadingSelector);
-    const error = useSelector(activityListErrorSelector);
+    const error = useSelector(activitiesforprojectErrorSelector);
 
     useEffect(() => {
-        dispatch(activityListActions.getActivityList());
+        dispatch(projectListActions.getActivitiesforProject());
     }, [dispatch]);
 
     const editAction = (id) => history.push("/editactivity/" + id);
     const deleteAction = (id) =>history.push("/'deleteactivity/"+id);
     const applyRejectionMethod = (id) =>history.push("/rejection/"+id);
-    const addRisk = (id) =>history.push("/addRisktoactivity/");
+    const addRisk = (id) =>history.push("/addRisktoavctivity/");
     const showRisk = (id)=>history.push("/showRisk/"+id);
-
     return (
-        <Loader loading={loading}>
+        <Loader loading={loading} >
             <ActivityTable
-                activityList={activityList}
+                activityList={activitiesforProject}
                 editAction={editAction}
                 deleteAction={deleteAction}
                 applyRejectionMethod={applyRejectionMethod}
@@ -41,4 +45,4 @@ function ActivityListContainer() {
     );
 }
 
-export default ActivityListContainer;
+export default ActivityListForProject;

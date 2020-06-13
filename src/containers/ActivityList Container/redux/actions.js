@@ -11,6 +11,11 @@ export const ACTIVITY_LIST_ACTION_TYPES = {
     GET_RISK_FOR_ACTIVITY_SUCCESS: "GET_RISK_FOR_ACTIVITY_SUCCESS",
     GET_RISK_FOR_ACTIVITY_ERROR: "GET_RISK_FOR_ACTIVITY_ERROR",
 
+    DELETE_ACTIVITY: "DELETE_ACTIVITY",
+    DELETE_ACTIVITY_SUCCESS: "DELETE_ACTIVITY_SUCCESS",
+    DELETE_ACTIVITY_ERROR: "DELETE_ACTIVITY_ERROR",
+
+
 };
 
 export const activityListActions = {
@@ -44,6 +49,16 @@ export const activityListActions = {
     }),
     getRiskforActivityError: (err) => ({
         type:ACTIVITY_LIST_ACTION_TYPES.GET_RISK_FOR_ACTIVITY_ERROR,
+        error: err,
+    }),
+    deleteActivity:() =>({
+       type: ACTIVITY_LIST_ACTION_TYPES.DELETE_ACTIVITY,
+    }),
+    deleteActivtySuccess: () =>({
+        type:ACTIVITY_LIST_ACTION_TYPES.DELETE_ACTIVITY_SUCCESS,
+    }),
+    deleteActivityError: (err)=>({
+        type:ACTIVITY_LIST_ACTION_TYPES.DELETE_ACTIVITY_ERROR,
         error: err,
     })
 

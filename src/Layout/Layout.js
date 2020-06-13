@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import {Button, Container, Modal, ModalBody, ModalFooter, Nav, Navbar} from "react-bootstrap";
 import ModalHeader from "react-bootstrap/ModalHeader";
 import FaultTreeAssess from "../components/ServiceOutput/FaultTreeAssess";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
 
 function Layout({ children }) {
     return (

@@ -1,21 +1,24 @@
 import {Route, Router, Switch} from "react-router";
-import ExampleComponent from "../components/ExampleComponent/ExampleComponent";
 import React from "react";
 import history from "../common/history";
 import Layout from "../Layout/Layout";
-import ProjectFormContainer from "../containers/ProjectListContainer/ProjectFormContainer";
 import RiskFormContainer from "../containers/RiskListContainer/RiskFormContainer";
 import ProjectListContainer from "../containers/ProjectListContainer/ProjectListContainer";
-import RiskListContainer from "../containers/RiskListContainer/RiskListCintainer";
 import ActivityListContainer from "../containers/ActivityList Container/ActivityListContainer";
-import ActivityForm from "../components/ActivityManager/ActivityForm";
+import CausalTreeForm from "../components/Forms/CausalTreeForm";
+import FaultTreeFormContainer from "../containers/FaultTreeContainer/FaultTreeFormContainer";
+import TaxonomieChart from "../components/ServiceOutput/TaxonomyChart";
 
 function Routes() {
     return (
         <Router history={history}>
             <Layout>
                 <Switch>
-                    <Route exact path="/" component={ProjectListContainer} />
+                    <Route exact path="/taxo/" component={TaxonomieChart}/>
+                    <Route exact path="/" component={CausalTreeForm}/>
+                    <Route exact path="/faultTreeForm/" component={FaultTreeFormContainer}/>
+                    <Route exact path="/project/" component={ProjectListContainer} />
+                    <Route exact path="/showTasks/:id" component={ActivityListContainer}/>
                     <Route exact path="/addRisktoavctivity/" component={RiskFormContainer}/>
                 </Switch>
             </Layout>

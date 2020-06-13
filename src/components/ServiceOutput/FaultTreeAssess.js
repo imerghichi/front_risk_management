@@ -5,6 +5,7 @@ import {Doughnut} from "react-chartjs-2";
 
 function FaultTreeAssess({ assessValue}) {
     return (
+
         <div>
             {assessValue}
         </div>

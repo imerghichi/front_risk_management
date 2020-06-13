@@ -1,12 +1,13 @@
-import {useState} from "react";
+import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 function FaultTreeForm({ submitHandler }) {
     const formInitialState = {
         event_name : "",
         type : "",
-        probability: "",
+        probability: 0,
     };
 
     const [formState, updateFormState] = useState(formInitialState);
@@ -49,7 +50,6 @@ function FaultTreeForm({ submitHandler }) {
                         value={formState.type}
                         onChange={(e) =>handleUpdate("type", e.target.value)}
                     >
-                        <option value= NULL>-----</option>
                         <option value="base_event">Evenement de base</option>
                         <option value="home_event">Evenement home</option>
                         <option value="non_developped_event">Evenement non développé</option>
@@ -61,7 +61,8 @@ function FaultTreeForm({ submitHandler }) {
                 <Form.Group as = {Col} md="4">
                     <Form.Label>Probabilité:</Form.Label>
                     <Form.Control
-                        type="Range"
+                        type="number" step="0.01"
+                        placeholder="0 par défaut"
                         onBlur = {(e)=>handleUpdate("probability",e.target.value)}
                     />
                 </Form.Group>
