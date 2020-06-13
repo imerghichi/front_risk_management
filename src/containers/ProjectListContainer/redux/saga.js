@@ -25,6 +25,15 @@ export function* addProject(action) {
     }
 }
 
+export function* getActivitiesforProjectSaga() {
+    try {
+        const response = yield call(fetchApi, "http://localhost:8080/allproject/");
+        yield put(projectListActions.getActivitiesforProjectSuccess(response));
+    } catch (e) {
+        yield put(projectListActions.getProjectListError(e));
+    }
+}
+
 export function* deleteProject(action) {
     const { id } = action;
     try {
@@ -45,6 +54,7 @@ function* watchProjectListSaga() {
     yield all([
         takeLatest(PROJECT_LIST_ACTION_TYPES.GET_PROJECT_LIST, getProjectListSaga),
         takeLatest(PROJECT_LIST_ACTION_TYPES.ADD_PROJECT, addProject),
+        takeLatest(PROJECT_LIST_ACTION_TYPES.GET_ACTIVITY_FOR_PROJECT,getActivitiesforProjectSaga),
         takeLatest(PROJECT_LIST_ACTION_TYPES.DELETE_PROJECT, deleteProject)
     ]);
 }

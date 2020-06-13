@@ -20,8 +20,10 @@ export const riskListActions = {
         type: RISK_LIST_ACTION_TYPES.GET_RISK_LIST_ERROR,
         error: err
     }),
-    postRisk: () => ({
+    postRisk: (payload) => ({
         type: RISK_LIST_ACTION_TYPES.ADD_RISK,
+        id: payload.id,
+        body: payload.body
     }),
     postRiskSuccess: () =>({
         type: RISK_LIST_ACTION_TYPES.ADD_RISK_SUCCESS,

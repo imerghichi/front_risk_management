@@ -20,3 +20,22 @@ export const projectListLoadingSelector = createSelector(
     state => state[storeName],
     state => state.loading
 );
+export const activitiesforporjectSelector = createSelector(
+    state => state[storeName],
+    state => state.activityListforProject
+);
+
+export const activitiesforprojectSuccessSelector = createSelector(
+    state => state[storeName],
+    state => state.success
+);
+
+export const activitiesforprojectErrorSelector = createSelector(
+    state => state[storeName],
+    state => state.error
+);
+
+export const activitiesforprojectLoadingSelector = createSelector(
+    state => state[storeName],
+    state => state.loading
+);

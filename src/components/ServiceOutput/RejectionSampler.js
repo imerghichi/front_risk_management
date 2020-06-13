@@ -1,5 +1,3 @@
-import {Button} from "react-bootstrap";
-
 import React from "react";
 
 function RejectionSampler({ rejectionValue}) {

@@ -1,15 +1,47 @@
 import React from "react";
-import {Pie} from "react-chartjs-2";
+import {Bar, Pie} from "react-chartjs-2";
+import {Card} from "primereact/card";
 
 function TaxonomieChart({ frequencies}) {
+    const mock = [2,3,6,7, 4,10,4,11,9,8,3, 2,9];
 
     const data = {
         labels: [
-//todo
+            'Requirement',
+            'Design',
+            'Code et tests unitaires',
+            'Test et integration',
+            'Spécialités d\'ingénieurie',
+
+            'Processus de développement',
+            'Systeme de développement',
+            'Processus de gestion',
+            'Méthodes de gestion',
+            'Environnement de travail',
+
+            'Ressources',
+            'Contrat',
+            'Interface de programme'
+
         ],
         datasets: [{
-            data:{frequencies},
+            data:mock,
             backgroundColor: [
+                '#FF6384',
+                '#FF6384',
+                '#FF6384',
+                '#FF6384',
+                '#FF6384',
+
+                '#36A2EB',
+                '#36A2EB',
+                '#36A2EB',
+                '#36A2EB',
+                '#36A2EB',
+
+                '#07d800',
+                '#07d800',
+                '#07d800',
 
             ],
             hoverBackgroundColor: [
@@ -19,8 +51,14 @@ function TaxonomieChart({ frequencies}) {
     };
 
     return (
-        <Bar data={data}/>
-    );
+            <div>
+                <h2>Taxonomie</h2>
+                <Bar data={data} legend={null} />
+                <div>
+
+                </div>
+        </div>
+        );
 }
 
 export default TaxonomieChart;

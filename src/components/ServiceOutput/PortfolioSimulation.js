@@ -1,8 +1,8 @@
 import React from "react";
-import {Pie} from "react-chartjs-2";
+import {Bar, Pie} from "react-chartjs-2";
 
 function OwnerLevelPie({ frequencies}) {
-
+    const mock = [2,3,6,7, 4,10,4,11,9,8,3, 2,9];
     const data = {
         labels: [
             '0-10',
@@ -17,7 +17,7 @@ function OwnerLevelPie({ frequencies}) {
             '90-10'
         ],
         datasets: [{
-            data:{frequencies},
+            data:frequencies,
             fill: false,
             lineTension: 0.1,
             backgroundColor: 'rgba(75,192,192,0.4)',

@@ -1,5 +1,6 @@
 import { PROJECT_LIST_ACTION_TYPES } from "./actions";
 const initalState = {
+    activityListforProject:{},
     projectList: {},
     loading: false,
     success: false,
@@ -14,6 +15,13 @@ function projectListReducer(state = initalState, action) {
             return { ...state, success: true, projectList: action.projectList, loading: false, error: null };
         case PROJECT_LIST_ACTION_TYPES.GET_PROJECT_LIST_ERROR:
             return { ...state, error: action.error, success: false, loading: false };
+
+        case PROJECT_LIST_ACTION_TYPES.GET_ACTIVITY_FOR_PROJECT:
+            return { ...state, loading: true, error: null, success: false };
+        case PROJECT_LIST_ACTION_TYPES.GET_ACTIVITY_FOR_PROJECT_SUCCESS:
+            return {...state,loading: false,success: true, activityListforProject: action.data};
+        case PROJECT_LIST_ACTION_TYPES.GET_ACTIVITY_FOR_PROJECT_ERROR:
+            return {...state,loading: false,success: false, error: action.error};
 
         case PROJECT_LIST_ACTION_TYPES.DELETE_PROJECT:
         case PROJECT_LIST_ACTION_TYPES.ADD_PROJECT:

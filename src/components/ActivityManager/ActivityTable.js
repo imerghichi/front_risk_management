@@ -1,7 +1,8 @@
 import {Button, DropdownItem} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
-import React from "react";
+import React, {useState} from "react";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import {useSelector} from "react-redux";
 
 function ActivityTable({ activityList, editAction,deleteAction, applyRejectionMethod, addRisk, showRisk }) {
     const mock = [{
@@ -11,6 +12,7 @@ function ActivityTable({ activityList, editAction,deleteAction, applyRejectionMe
 
         }
         ];
+    const [riskformmodal, setriskmodal]= useState();
 
     return (
         <Table >
@@ -53,7 +55,7 @@ function ActivityTable({ activityList, editAction,deleteAction, applyRejectionMe
                                 <DropdownItem as = "button" onClick ={()=>  showRisk(element.id_task_project)}>
                                     Voir
                                 </DropdownItem>
-                                <DropdownItem as = "button" onClick ={()=>  showRisk(element.id_task_project)}>
+                                <DropdownItem as = "button" onClick ={()=>  addRisk(element.id_task_project)}>
                                     Ajouter
                                 </DropdownItem>
                             </DropdownButton>

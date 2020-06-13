@@ -1,7 +1,8 @@
 /* eslint-disable react/react-in-jsx-scope */
-import {useState} from "react";
+import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 function PortfolioForm({ submitHandler }) {
     const formInitialState = {
@@ -36,7 +37,6 @@ function PortfolioForm({ submitHandler }) {
         }
         updateFormState(newFormState);
     };
-
     return (
         <Form noValidate validated={true}>
             <Form.Row>
@@ -53,7 +53,7 @@ function PortfolioForm({ submitHandler }) {
                 <Form.Group as = {Col} md="4">
                     <Form.Label>Investissement Initiale</Form.Label>
                     <Form.Control
-                        type="Range"
+                        type="number"
                         placeholder="Entrer l'investissement initial"
                         onBlur = {(e)=>handleUpdate("initialInvestment",e.target.value)}
                     />
@@ -63,7 +63,7 @@ function PortfolioForm({ submitHandler }) {
                 <Form.Group as = {Col} md="4">
                     <Form.Label>Moyenne:</Form.Label>
                     <Form.Control
-                        type="Range"
+                        type="number"
                         placeholder="Entrer la moyenne"
                         onBlur = {(e)=>handleUpdate("mean",e.target.value)}
                     />
@@ -73,7 +73,7 @@ function PortfolioForm({ submitHandler }) {
                 <Form.Group as = {Col} md="4">
                     <Form.Label>Deviation Standard:</Form.Label>
                     <Form.Control
-                        type="Range"
+                        type="number" step = "0.01"
                         placeholder="Standard Deviation"
                         onBlur = {(e)=>handleUpdate("standardDeviation",e.target.value)}
                     />
@@ -83,7 +83,7 @@ function PortfolioForm({ submitHandler }) {
                 <Form.Group as = {Col} md="4">
                     <Form.Label>Taux d'inflation</Form.Label>
                     <Form.Control
-                        type="Range"
+                        type="number" step = "0.01"
                         placeholder="Entrer le taux d'inflation"
                         onBlur = {(e)=>handleUpdate("inflationRate",e.target.value)}
                     />

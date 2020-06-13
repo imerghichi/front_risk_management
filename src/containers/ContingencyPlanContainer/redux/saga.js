@@ -8,7 +8,7 @@ export function* addContingencyPlan(action) {
         const {contingencyPlan} = action;
         const contingencyPlandetail = yield call(fetchApi, "/cp",{
             method: "POST",
-            body: JSON.stringify(project),
+            body: JSON.stringify(contingencyPlan),
         });
         yield put(contingencyPlanListActions.postContingencyPlan());
     } catch (e) {
@@ -19,8 +19,8 @@ export function* addContingencyPlan(action) {
 
 function* watchContingencyPlanSaga() {
     yield all([
-        takeLatest(CONTINGENCY_PLAN_ACTION_TYPES.ADD_CONTINGENCY_PLAN, adaddProjectdContingencyPlan)
+        takeLatest(CONTINGENCY_PLAN_ACTION_TYPES.ADD_CONTINGENCY_PLAN, addContingencyPlan)
     ]);
 }
 
-export default watchProjectListSaga;
+export default watchContingencyPlanSaga;
