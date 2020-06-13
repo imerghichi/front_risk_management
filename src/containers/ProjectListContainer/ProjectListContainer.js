@@ -23,7 +23,7 @@ function ProjectListContainer() {
 
     const editAction = (id) => history.push("/editproject/"+id);
     const deleteAction = (id) =>history.push("/'deleteproject/"+id);
-    const showTasks =(id) =>history.push("/showTasks/"+id);
+    const showTasks =(id) =>history.push("/showTasks/");
     const addTeamMember = (id) =>history.push("/addTM/"+id);
     const addTasks =(id) =>history.push("/addTask/"+id);
     const addPortfolio = (id) =>history.push("/addPortfolio/"+id);

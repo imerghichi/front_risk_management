@@ -8,6 +8,7 @@ import ActivityListContainer from "../containers/ActivityList Container/Activity
 import CausalTreeForm from "../components/Forms/CausalTreeForm";
 import FaultTreeFormContainer from "../containers/FaultTreeContainer/FaultTreeFormContainer";
 import TaxonomieChart from "../components/ServiceOutput/TaxonomyChart";
+import ProjectFormContainer from "../containers/ProjectListContainer/ProjectFormContainer";
 
 function Routes() {
     return (
@@ -15,10 +16,9 @@ function Routes() {
             <Layout>
                 <Switch>
                     <Route exact path="/taxo/" component={TaxonomieChart}/>
-                    <Route exact path="/" component={CausalTreeForm}/>
                     <Route exact path="/faultTreeForm/" component={FaultTreeFormContainer}/>
                     <Route exact path="/project/" component={ProjectListContainer} />
-                    <Route exact path="/showTasks/:id" component={ActivityListContainer}/>
+                    <Route exact path="/showTasks/" component={ActivityListContainer}/>
                     <Route exact path="/addRisktoavctivity/" component={RiskFormContainer}/>
                 </Switch>
             </Layout>

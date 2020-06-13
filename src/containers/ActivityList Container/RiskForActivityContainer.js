@@ -10,7 +10,6 @@ import {activityListActions} from "./redux/actions";
 function RiskListContainer() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const {pathname} = useLocation();
 
     const riskList = useSelector(riskforactivitySelector);
     const loading = useSelector(riskforactivityLoadingSelector);

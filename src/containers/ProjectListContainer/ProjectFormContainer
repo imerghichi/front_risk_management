@@ -6,6 +6,7 @@ import ProjectManagerForm from "../../components/ProjectManager/ProjectManagerFo
 function ProjectFormContainer() {
     const dispatch = useDispatch();
 
+
     const submitHandler = (vals) => {
         dispatch(projectListActions.postProject(vals));
     };

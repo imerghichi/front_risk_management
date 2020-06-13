@@ -13,6 +13,9 @@ import {
 import Table from "react-bootstrap/Table";
 import React, {useState} from "react";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import ProjectFormContainer from "../../containers/ProjectListContainer/ProjectFormContainer";
+import PortfolioFormContainer from "../../containers/PortfolioListContainer/PortfolioFormContainer";
+import PortfolioSimulationForm from "../ServicesForms/PortfolioSimulationForm";
 
 function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks, addTeamMember, addTasks, addPortfolio, simulate}) {
     const mock =[
@@ -37,7 +40,26 @@ function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks,
     const [modalPortfolio, setmodalPortFolio] = useState(false);
     const handleClosePF = () => setmodalPortFolio(false);
     const handleShowPF = () =>setmodalPortFolio(true);
+
+    const [modalPortfolio2, setmodalPortFolio2] = useState(false);
+    const handleClosePF2 = () => setmodalPortFolio2(false);
+    const handleShowPF2 = () =>setmodalPortFolio2(true);
+
+    const [projectFormModal, setProjectFormModal]= useState(false);
+    const handleShowForm = () =>setProjectFormModal(true);
+    const handleCloseForm = () => setProjectFormModal(false);
+
+
+    const [pfsModal, setpfsModal]= useState(false);
+    const handleShowpfs = () =>setpfsModal(true);
+    const handleClosepfs = () => setpfsModal(false);
+
     return (
+        <div>
+            <div>
+                <Button variant="primary" onClick={handleShowForm}>Entrer Projet</Button>
+            </div>
+
         <Table striped bordered hover>
             <thead>
             <tr>
@@ -139,13 +161,31 @@ function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks,
                                         </ListGroup>
                                     </Modal.Body>
                                     <Modal.Footer>
-                                        <Button color = "primary" onClick = {() => simulate(element.id_project)}>Simuler</Button>
+                                        <Button color = "primary" onClick = {handleShowpfs}>Simuler</Button>
+                                        <Modal show = {pfsModal} onHide ={handleClosepfs}>
+                                            <Modal.Title>Paramètres de simulation</Modal.Title>
+                                            <Modal.Body>
+                                                <PortfolioSimulationForm/>
+                                            </Modal.Body>
+                                            <Modal.Footer>
+                                                <Button color="primary" onClick={handleClosepfs}>Annuler</Button>
+                                            </Modal.Footer>
+                                        </Modal>
                                         <Button color="primary" onClick={handleClosePF}>Fermer</Button>
                                     </Modal.Footer>
                                 </Modal>
-                                <DropdownItem as = "button" onClick ={()=>  addPortfolio(element.id_project)}>
+                                <DropdownItem as = "button" onClick ={handleShowPF2}>
                                     Ajouter
                                 </DropdownItem>
+                                <Modal show = {modalPortfolio2} onHide ={handleClosePF2}>
+                                    <Modal.Title>Ajouter Portfolio</Modal.Title>
+                                    <Modal.Body>
+                                       <PortfolioFormContainer/>
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button color="primary" onClick={handleClosePF2}>Annuler</Button>
+                                    </Modal.Footer>
+                                </Modal>
                             </DropdownButton>
                         </td>
                     </tr>
@@ -155,6 +195,7 @@ function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks,
 
             </tbody>
         </Table>
+        </div>
     );
 }
 

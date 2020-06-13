@@ -1,8 +1,9 @@
 import {ownerLevelErrorSelector, ownerLevelLoadingSelector, ownerLevelSelector} from "./redux/selector";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 import {ownerLevelActions} from "./redux/action";
 import Loader from "../../components/Loader/Loader";
 import OwnerLevelPie from "../../components/ServiceOutput/OwnerLevelPie";
+import {useDispatch, useSelector} from "react-redux";
 
 function OwnerLevelContainer() {
     const dispatch = useDispatch();
