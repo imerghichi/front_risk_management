@@ -2,7 +2,7 @@ import {Button} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import React from "react";
 
-function PortfolioMangerTable({ portfolioList, editAction, deleteAction }) {
+function PortfolioMangerTable({ portfolioList, editAction, deleteAction, simulate }) {
     return (
         <Table striped bordered hover>
             <thead>
@@ -13,28 +13,42 @@ function PortfolioMangerTable({ portfolioList, editAction, deleteAction }) {
                 <th>Taux d'inflation</th>
                 <th>Moyenne</th>
                 <th>Déviation Standard</th>
-                <th>Taux d'inflation</th>
+                <th>Titre du projet</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>
-                    <Button variant="warning" onClick={editAction}>
-                        <i className="fa fa-edit" />
-                    </Button>
-                    {' '}
-                    <Button variant="danger">
-                        <i className="fa fa-remove" onClick={deleteAction}/>
-                    </Button>
-                </td>
-            </tr>
+            {portfolioList.map((element) =>{
+                return(
+                    <tr>
+                        <td>{element.id_portfolio}</td>
+                        <td>{element.description}</td>
+                        <td>{element.initialInvestment}</td>
+                        <td>{element.inflationRate}</td>
+                        <td>{element.mean}</td>
+                        <td>{element.standardDeviation}</td>
+                        <td>{element.project.project_name}</td>
+                        <td>
+                            <Button variant="warning" onClick={() =>editAction(element.id_portfolio) }>
+                                <i className="fa fa-edit" />
+                            </Button>
+                            {' '}
+                        </td>
+                        <td>
+                            <Button variant="danger">
+                                <i className="fa fa-remove" onClick={()=> deleteAction(element.id_portfolio)}/>
+                            </Button>
+                        </td>
+                        <td>
+                        <Button variant="primary" onClick={()=> simulate(element.id_portfolio)}>
+                            Simuler
+                        </Button>
+                        </td>
+
+                    </tr>
+
+                )
+            })}
+
             </tbody>
         </Table>
     );

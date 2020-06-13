@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Button, Col, Form} from "react-bootstrap";
 
-function RiskManagerForm() {
+function RiskManagerForm({submitHandler}) {
 
     const formInitialState = {
         risk_name:"",
@@ -9,7 +9,7 @@ function RiskManagerForm() {
         probability: 0,
         detection_difficulty: 0,
         vulnerability: 0,
-        consequence_description: "",
+        consquence_description: "",
         date_risk:"",
         active: false,
         detected: false,
@@ -182,7 +182,6 @@ function RiskManagerForm() {
                         value={formState.impact}
                         onChange={(e) =>handleUpdate("impact", e.target.value)}
                     >
-                        <option value=NULL>-----</option>
                         <option value="ACCEPTABLE">Acceptable</option>
                         <option value="TOLERABLE">Tolérable</option>
                         <option value="UNACCEPTABLE">Non-acceptable</option>
@@ -198,7 +197,6 @@ function RiskManagerForm() {
                         value={formState.nature_risk}
                         onChange={(e) =>handleUpdate("nature_risk", e.target.value)}
                     >
-                        <option value=NULL>-----</option>
                         <option value="hazard">Hasard</option>
                         <option value="constraint">Contrainte</option>
                         <option value="nominal">Nominal</option>
@@ -214,7 +212,6 @@ function RiskManagerForm() {
                         value={formState.origin_risk}
                         onChange={(e) =>handleUpdate("origin_risk", e.target.value)}
                     >
-                        <option value=NULL>-----</option>
                         <option value="external">Externe</option>
                         <option value="internal">Interne</option>
                         <option value="vendor">Vendeur</option>
@@ -229,7 +226,6 @@ function RiskManagerForm() {
                         value={formState.type_risk}
                         onChange={(e) =>handleUpdate("type_risk", e.target.value)}
                     >
-                        <option value=NULL>-----</option>
                         <option value="strategic_risk">Stratégique</option>
                         <option value="compliance_and_regulatory_risk">conformité et réglementation</option>
                         <option value="financial_risk">Finacier</option>
@@ -245,7 +241,6 @@ function RiskManagerForm() {
                         value={formState.category}
                         onChange={(e) =>handleUpdate("category", e.target.value)}
                     >
-                        <option value=NULL>-----</option>
                         <option value="engineering_process_risk">process ingenieur</option>
                         <option value="support_process_risk">process du support </option>
                         <option value="project_management_process_risk,">Finacier</option>
@@ -270,7 +265,6 @@ function RiskManagerForm() {
                         value={formState.ownerLevel}
                         onChange={(e) =>handleUpdate("ownerLevel", e.target.value)}
                     >
-                        <option value=NULL>-----</option>
                         <option value="Enterprise_Level">Entreprise</option>
                         <option value="SBU_Level">Domaine d'activité stratégique</option>
                         <option value="Program_Level">Programme</option>
@@ -288,7 +282,6 @@ function RiskManagerForm() {
                         value={formState.visibility}
                         onChange={(e) =>handleUpdate("visibility", e.target.value)}
                     >
-                        <option value=NULL>-----</option>
                         <option value="very_high">Très forte</option>
                         <option value="high">Forte</option>
                         <option value="normal">Normal</option>
@@ -306,7 +299,6 @@ function RiskManagerForm() {
                         value={formState.taxonomy}
                         onChange={(e) =>handleUpdate("taxonomy", e.target.value)}
                     >
-                        <option value=NULL>-----</option>
                         <option value="Requirement">Exigence</option>
                         <option value="Design">Design</option>
                         <option value="Code_and_unit_test">Code et tests unitaires</option>

@@ -25,14 +25,15 @@ function OwnerLevelPie({ frequencies}) {
                 '#FF6384',
                 '#36A2EB',
                 '#FFCE56',
-                '#a7ffa3',
-                '#F1A3FF'
+                '#07d800',
+                '#eeff00'
             ]
         }]
     };
 
     return (
         <Pie data={data}/>
+
     );
 }
 

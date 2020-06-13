@@ -5,7 +5,7 @@ import { projectListActions, PROJECT_LIST_ACTION_TYPES } from './actions';
 
 export function* getProjectListSaga() {
     try {
-        const response = yield call(fetchApi, "/project");
+        const response = yield call(fetchApi, "http://localhost:8080/allproject/");
         yield put(projectListActions.getProjectListSuccess(response));
     } catch (e) {
         yield put(projectListActions.getProjectListError(e));

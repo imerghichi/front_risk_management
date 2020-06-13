@@ -3,7 +3,7 @@ const storeName = 'riskList';
 
 export const riskListSelector = createSelector(
     state => state[storeName],
-    state => state.riskMatrix
+    state => state.riskList
 );
 
 export const riskListSuccessSelector = createSelector(

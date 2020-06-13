@@ -1,8 +1,17 @@
-import {Button} from "react-bootstrap";
+import {Button, DropdownItem} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import React from "react";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 function ActivityTable({ activityList, editAction,deleteAction, applyRejectionMethod, addRisk, showRisk }) {
+    const mock = [{
+            "id_task_project": 1,
+        "risk_id": 1,
+        "risk_name": "riskk",
+
+        }
+        ];
+
     return (
         <Table >
             <thead>
@@ -18,37 +27,45 @@ function ActivityTable({ activityList, editAction,deleteAction, applyRejectionMe
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>@id</td>
-                <td>nom</td>
-                <td>desciption</td>
-                <td>normal</td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>
-                    <Button variant="warning" onClick={editAction}>
-                        <i className="fa fa-edit" />
-                    </Button>
-                    {' '}
-                    <Button variant="danger" onClick={deleteAction}>
-                        <i className="fa fa-remove"/>
-                        Supprimer
-                    </Button>
-                    {' '}
-                    <Button variant="primary" onClick={showRisk}>
-                        Risques
-                    </Button>
-                    {' '}
-                    <Button variant="primary" onClick={addRisk}>
-                        Ajouter Risque
-                    </Button>
-                    {' '}
-                    <Button variant="secondary" onClick={applyRejectionMethod}>
-                        Rejection
-                    </Button>
-                </td>
-            </tr>
+            {mock.map((element) => {
+                return (
+                    <tr>
+                        <td>{element.id_task_project}</td>
+                        <td>{element.task_name}</td>
+                        <td>{element.description}</td>
+                        <td>{element.distribution}</td>
+                        <td>{element.parametre1}</td>
+                        <td>{element.parametre2}</td>
+                        <td>{element.parametre3}</td>
+                        <td>
+                            <Button variant="warning" onClick={() => editAction(element.id_task_project)}>
+                                <i className="fa fa-edit" />
+                            </Button>
+                            {' '}
+                        </td>
+                            <td>
+                            <Button variant="danger" onClick={() => deleteAction(element.id_task_project)}>
+                                <i className="fa fa-remove"/>
+                            </Button>
+                            </td>
+                        <td>
+                            <DropdownButton id="dropdown-basic-button" title="Risques">
+                                <DropdownItem as = "button" onClick ={()=>  showRisk(element.id_task_project)}>
+                                    Voir
+                                </DropdownItem>
+                                <DropdownItem as = "button" onClick ={()=>  showRisk(element.id_task_project)}>
+                                    Ajouter
+                                </DropdownItem>
+                            </DropdownButton>
+                        </td>
+                        <td>
+                            <Button variant="secondary" onClick={() => applyRejectionMethod(element.id_task_project)}>
+                                Rejection
+                            </Button>
+                        </td>
+                    </tr>
+                );
+            })}
             </tbody>
         </Table>
     );

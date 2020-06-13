@@ -3,7 +3,7 @@ import {Button} from "react-bootstrap";
 import React from "react";
 import {Pie} from "react-chartjs-2";
 
-function InternalExternalPie({ frequencies}) {
+function InternalExternalPie({frequencies}) {
 
     const data = {
         labels: [

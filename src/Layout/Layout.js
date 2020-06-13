@@ -1,8 +1,9 @@
-import React from "react";
-import {Container, Nav, Navbar} from "react-bootstrap";
+import React, {useState} from "react";
+import {Button, Container, Modal, ModalBody, ModalFooter, Nav, Navbar} from "react-bootstrap";
+import ModalHeader from "react-bootstrap/ModalHeader";
+import FaultTreeAssess from "../components/ServiceOutput/FaultTreeAssess";
 
 function Layout({ children }) {
-
     return (
         <Container fluid>
             <Navbar bg="dark" variant="dark">
@@ -16,6 +17,7 @@ function Layout({ children }) {
 
             <Container style={{marginTop: "30px"}}>
                 {children}
+
             </Container>
         </Container>
 

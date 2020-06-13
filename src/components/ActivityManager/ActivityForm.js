@@ -2,16 +2,10 @@
 import {useState} from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
-function ActivityForm({ submitHandler }) {
-    const formInitialState = {
-        task_name : "",
-        description : "",
-        distribution: "",
-        parametre1: 0,
-        parametre2: 0,
-        parametre3: 0,
-    };
+function ActivityForm({ formInitialState,submitHandler }) {
+
 
     const [formState, updateFormState] = useState(formInitialState);
     const handleUpdate = (fieldKey, newValue) => {
@@ -90,7 +84,7 @@ function ActivityForm({ submitHandler }) {
                 <Form.Group as = {Col} md="4">
                     <Form.Label>Description:</Form.Label>
                     <Form.Control
-                        type="Range"
+                        type="Number"
                         placeholder="parametres de la distribution"
                         onBlur = {(e)=>handleUpdate("parametre1",e.target.value)}
                     />

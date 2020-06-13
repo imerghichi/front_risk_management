@@ -4,7 +4,8 @@ import fetchApi from "../../../common/networking";
 
 export function* getRiskListSaga() {
     try {
-        const response = yield call(fetchApi, "/risk");
+        const response = yield call(fetchApi, "http://localhost:8080/aproject/2", {
+            method: "GET"});
         yield put(riskListActions.getRiskListSuccess(response));
     } catch (e) {
         yield put(riskListActions.getRiskListError(e));
@@ -15,7 +16,7 @@ export function* getRiskListSaga() {
 export function* addRisk(action) {
     try {
         const {risk} = action;
-        const riskDetails = yield call(fetchApi, "/risk",{
+        const riskDetails = yield call(fetchApi, "http://localhost:8080/postrisk",{
             method: "POST",
             body: JSON.stringify(risk),
         });

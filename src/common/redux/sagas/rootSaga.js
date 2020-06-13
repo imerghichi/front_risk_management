@@ -10,6 +10,5 @@ export default function* rootSaga() {
         fork(watchPortfolioListSaga),
         fork(watchProjectListSaga),
         fork(watchRiskListSaga),
-
     ]);
 }

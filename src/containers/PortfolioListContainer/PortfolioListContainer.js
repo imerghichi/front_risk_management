@@ -19,14 +19,16 @@ function PortfolioListContainer() {
         dispatch(portfolioListActions.getPortfolioList());
     }, [dispatch]);
 
-    const editAction = (id) => history.push("/'edit'");
-    const deleteAction = (id) =>history.push("/delete");
+    const editAction = (id) => history.push("/editportfolio/"+id);
+    const deleteAction = (id) =>history.push("/deleteportfolio/"+id);
+    const simulate = (id) =>history.push("/simulateprotfolio/"+id);
     return (
         <Loader loading={loading} error={error}>
             <PortfolioMangerTable
                 portfolioList = {portfolioList}
                 editAction = {editAction}
                 deleteAction = {deleteAction}
+                simulate = {simulate}
             />
         </Loader>
     );

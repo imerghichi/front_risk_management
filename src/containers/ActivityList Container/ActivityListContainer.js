@@ -6,6 +6,7 @@ import {useHistory} from "react-router";
 import {activityListErrorSelector, activityListLoadingSelector, activityListSelector} from "./redux/selectors";
 import {activityListActions} from "./redux/actions";
 import ActivityTable from "../../components/ActivityManager/ActivityTable";
+import {render} from "react-dom";
 
 function ActivityListContainer() {
     const dispatch = useDispatch();
@@ -19,14 +20,14 @@ function ActivityListContainer() {
         dispatch(activityListActions.getActivityList());
     }, [dispatch]);
 
-    const editAction = (id) => history.push("/'edit'");
-    const deleteAction = (id) =>history.push("/'delete");
-    const applyRejectionMethod = (id) =>history.push("/rejection");
-    const addRisk = (id) =>history.push("/addRisk");
-    const showRisk = (id)=> history.push("/showRisk");
+    const editAction = (id) => history.push("/editactivity/" + id);
+    const deleteAction = (id) =>history.push("/'deleteactivity/"+id);
+    const applyRejectionMethod = (id) =>history.push("/rejection/"+id);
+    const addRisk = (id) =>history.push("/addRisktoavctivity/");
+    const showRisk = (id)=>history.push("/showRisk/"+id);
 
     return (
-        <Loader loading={loading} error={error}>
+        <Loader loading={loading}>
             <ActivityTable
                 activityList={activityList}
                 editAction={editAction}

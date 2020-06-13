@@ -21,6 +21,7 @@ export default function configureAppStore() {
     const composeEnhancers = composeFunc(...enhancers);
     const store = createStore(rootReducer(history), composeEnhancers);
 
+
     sagaMiddleware.run(rootSaga);
 
     return store

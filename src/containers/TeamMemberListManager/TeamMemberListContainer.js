@@ -18,8 +18,8 @@ function TeamMemberListContainer() {
         dispatch(teamMemberListActions.getTeamMemberList());
     }, [dispatch]);
 
-    const editAction = (id) => history.push("/'edit'");
-    const deleteAction = (id) =>history.push("/'delete");
+    const editAction = (id) => history.push("/editTM/"+id);
+    const deleteAction = (id) =>history.push("/deleteTM/"+id);
 
     return (
         <Loader loading={loading} error={error}>

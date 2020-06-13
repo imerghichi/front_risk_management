@@ -18,8 +18,8 @@ function FaultTreeContainer() {
         dispatch(faultTreeActions.getFaultTree());
     }, [dispatch]);
 
-    const editAction = (id) => history.push("/edit");
-    const deleteAction = (id) =>history.push("/'delete");
+    const editAction = (id) => history.push("/editFT/"+id);
+    const deleteAction = (id) =>history.push("/'deleteFT/"+id);
 
     return (
         <Loader loading={loading} error={error}>

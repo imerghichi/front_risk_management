@@ -19,9 +19,9 @@ function RiskListContainer() {
         dispatch(riskListActions.getRiskList());
     }, [dispatch]);
 
-    const editAction = (id) => history.push("/'edit'");
-    const addResponse = (id) => history.push("/response/{id}");
-    const showResponse = (id) => history.push("/showresponse/{id}");
+    const editAction = (id) => history.push("/editrisk/"+id);
+    const addResponse = (id) => history.push("/addresponse/"+id);
+    const showResponse = (id) => history.push("/showresponse/"+id);
 
     return (
         <Loader loading={loading} error={error}>
