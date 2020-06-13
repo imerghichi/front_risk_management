@@ -19,16 +19,17 @@ function ProjectListContainer() {
         dispatch(projectListActions.getProjectList());
     }, [dispatch]);
 
+    const deleteAction = (id) => dispatch(projectListActions.deleteProject(id));
+
     const editAction = (id) => history.push("/editproject/"+id);
-    const deleteAction = (id) =>history.push("/'deleteproject/"+id);
     const showTasks =(id) =>history.push("/showTasks/"+id);
     const addTeamMember = (id) =>history.push("/addTM/"+id);
     const addTasks =(id) =>history.push("/addTask/"+id);
     const addPortfolio = (id) =>history.push("/addPortfolio/"+id);
-    const simulatePortfolio = (id) => history.push("/simulate/"+id)
+    const simulatePortfolio = (id) => history.push("/simulate/"+id);
 
     return (
-        <Loader loading={loading} >
+        <Loader loading={loading}  >
             <ProjectManagerTable
                 projectList={projectList}
                 editAction={editAction}

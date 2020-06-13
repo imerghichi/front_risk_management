@@ -25,11 +25,27 @@ export function* addProject(action) {
     }
 }
 
+export function* deleteProject(action) {
+    const { id } = action;
+    try {
+        yield call(fetchApi, `/deleteproject/${id}`, {
+            method: "DELETE"
+        });
+        yield put(projectListActions.deleteProjectSuccess());
+
+        // when delete success, we fetch projects list again, to automatically fetch new data from server
+        yield put(projectListActions.getProjectList());
+    } catch (e) {
+        yield put(projectListActions.deleteProjectError(e));
+    }
+}
+
 
 function* watchProjectListSaga() {
     yield all([
         takeLatest(PROJECT_LIST_ACTION_TYPES.GET_PROJECT_LIST, getProjectListSaga),
-        takeLatest(PROJECT_LIST_ACTION_TYPES.ADD_PROJECT, addProject)
+        takeLatest(PROJECT_LIST_ACTION_TYPES.ADD_PROJECT, addProject),
+        takeLatest(PROJECT_LIST_ACTION_TYPES.DELETE_PROJECT, deleteProject)
     ]);
 }
 
