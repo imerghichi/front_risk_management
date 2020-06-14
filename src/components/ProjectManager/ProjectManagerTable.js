@@ -15,6 +15,9 @@ import React, {useState} from "react";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import PortfolioFormContainer from "../../containers/PortfolioListContainer/PortfolioFormContainer";
 import PortfolioSimulationForm from "../ServicesForms/PortfolioSimulationForm";
+import TeamMemberForm from "../TeamMemberManager/TeamMemberForm";
+import TeamMemberFormContainer from "../../containers/TeamMemberListManager/TeamMemberFormContainer";
+import ActivityFormContainer from "../../containers/ActivityList Container/ActivityFormContainer";
 
 function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks, addTeamMember, addTasks, addPortfolio, simulate}) {
     const [modalTeamMember, setModalTeamMember] = useState(false);
@@ -37,6 +40,14 @@ function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks,
     const [pfsModal, setpfsModal]= useState(false);
     const handleShowpfs = () =>setpfsModal(true);
     const handleClosepfs = () => setpfsModal(false);
+
+    const [modalAddTM, setmodalAddTM] =useState(false);
+    const handleCloseAddTM = ()=> setmodalAddTM(false);
+    const handleShowAddTM = () =>setmodalAddTM(true);
+
+    const [modalAddTask,setmodalAddTask] =useState(false);
+    const handleCloseAddTask = () =>setmodalAddTask (false);
+    const handleShowAddTask =() => setmodalAddTask(true);
 
     return (
         <div>
@@ -97,22 +108,43 @@ function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks,
                                     </Table>
                                 </Modal.Body>
                                 <Modal.Footer>
-                                    <Button variant="primary" onClick={()=> addTeamMember(element.id_project)}>
+                                    <Button variant="primary" onClick={handleShowAddTM}>
                                         Ajouter un membre
                                     </Button>
+                                    <Modal show = {modalAddTM} onHide ={handleCloseAddTM}>
+                                        <Modal.Title>Ajouter Membre</Modal.Title>
+                                        <Modal.Body>
+                                            <TeamMemberFormContainer/>
+                                        </Modal.Body>
+                                        <Modal.Footer>
                                     <Button color="primary" onClick={handleCloseTM}>Fermer</Button>
                                 </Modal.Footer>
                             </Modal>
+                                </Modal.Footer>
+                            </Modal>
+
                         </td>
 
                         <td>
                             <DropdownButton id="dropdown-basic-button" title="Tache">
-                                <DropdownItem as = "button" onClick ={()=>  showTasks(element.id_project)}>
-                                    Voir
-                                </DropdownItem>
-                                <DropdownItem as = "button" onClick ={()=>  addTasks(element.id_project)}>
+                            <DropdownItem as = "button" onClick={()=> showTasks(element.id_project)}>
+                                Voir
+                            </DropdownItem>
+                                <DropdownItem as = "button" onClick ={handleShowAddTask}>
                                     Ajouter
                                 </DropdownItem>
+                                <DropdownItem as = "button" onClick ={handleShowAddTask}>
+                                    <Modal show = {modalAddTask} onHide ={handleCloseAddTask}>
+                                        <Modal.Title>Ajouter Tache</Modal.Title>
+                                        <Modal.Body>
+                                            <ActivityFormContainer/>
+                                        </Modal.Body>
+                                        <Modal.Footer>
+                                            <Button color="primary" onClick={handleCloseAddTask}>Annuler</Button>
+                                        </Modal.Footer>
+                                    </Modal>
+                                </DropdownItem>
+
                             </DropdownButton>
                         </td>
                         <td>

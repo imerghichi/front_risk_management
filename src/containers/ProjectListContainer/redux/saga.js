@@ -25,9 +25,10 @@ export function* addProject(action) {
     }
 }
 
-export function* getActivitiesforProjectSaga() {
+export function* getActivitiesforProjectSaga(action) {
     try {
-        const response = yield call(fetchApi, "/allproject");
+        const id_project = action.project_id;
+        const response = yield call(fetchApi, "/allproject/"+ id_project);
         yield put(projectListActions.getActivitiesforProjectSuccess(response));
     } catch (e) {
         yield put(projectListActions.getProjectListError(e));

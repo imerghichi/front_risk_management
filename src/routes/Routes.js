@@ -7,6 +7,7 @@ import ProjectListContainer from "../containers/ProjectListContainer/ProjectList
 import ActivityListContainer from "../containers/ActivityList Container/ActivityListContainer";
 import FaultTreeFormContainer from "../containers/FaultTreeContainer/FaultTreeFormContainer";
 import TaxonomieChart from "../components/ServiceOutput/TaxonomyChart";
+import ActivityListForProject from "../containers/ProjectListContainer/ActivityListForProject";
 
 function Routes() {
     return (
@@ -18,6 +19,7 @@ function Routes() {
                     <Route exact path="/faultTreeForm/" component={FaultTreeFormContainer}/>
                     <Route exact path="/showTasks/" component={ActivityListContainer}/>
                     <Route exact path="/addRisktoavctivity/" component={RiskFormContainer}/>
+                    <Route exact path= "/activities/*" component={ActivityListForProject}/>
                 </Switch>
             </Layout>
         </Router>

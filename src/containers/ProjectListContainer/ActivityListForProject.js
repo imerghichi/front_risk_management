@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import '../../assets/css/App.css';
 import {useDispatch, useSelector} from "react-redux";
 import Loader from "../../components/Loader/Loader";
-import {useHistory} from "react-router";
+import {useHistory, useLocation, useParams} from "react-router";
 import {
     projectListSelector,
     projectListLoadingSelector,
@@ -13,9 +13,11 @@ import { projectListActions } from './redux/actions';
 import ProjectManagerTable from "../../components/ProjectManager/ProjectManagerTable";
 import {activityListLoadingSelector} from "../ActivityList Container/redux/selectors";
 import ActivityTable from "../../components/ActivityManager/ActivityTable";
+import {contingencyPlanListActions} from "../ContingencyPlanContainer/redux/actions";
 
 function ActivityListForProject() {
     const dispatch = useDispatch();
+    const project_id = useParams();
     const history = useHistory();
 
     const activitiesforProject = useSelector(activitiesforporjectSelector);
