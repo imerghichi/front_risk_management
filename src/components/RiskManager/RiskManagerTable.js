@@ -1,9 +1,15 @@
-import {Button, DropdownItem} from "react-bootstrap";
+import {Accordion, Button, Card, DropdownItem, ListGroup} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import React from "react";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
 function RiskManagerTable({ riskList, editAction, deleteAction,addResponse, showResponse }) {
+    const mock = [{
+        "id_risk": 1,
+    },{
+        "id_risk": 2,
+    }
+    ];
     return (
         <Table striped bordered hover>
             <thead>
@@ -11,11 +17,7 @@ function RiskManagerTable({ riskList, editAction, deleteAction,addResponse, show
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Description</th>
-                <th>probabilité</th>
-                <th>Difficulté de détection</th>
-                <th>Vulérabilité</th>
-                <th>Impact</th>
-                <th>Description des conséquences</th>
+                <th>Conséquences</th>
                 <th>Date de risque</th>
                 <th>Origine</th>
                 <th>Nature</th>
@@ -28,25 +30,46 @@ function RiskManagerTable({ riskList, editAction, deleteAction,addResponse, show
             </tr>
             </thead>
             <tbody>
-            {riskList.map((element) =>(
+            {mock.map((element) =>(
                 <tr>
-                    <td>{riskList.id_risk}</td>
-                    <td>{riskList.risk_name}</td>
-                    <td>{riskList.description}</td>
-                    <td>{riskList.probability}</td>
-                    <td>{riskList.detection_difficulty}</td>
-                    <td>{riskList.vulnerability}</td>
-                    <td>{riskList.impact}</td>
-                    <td>{riskList.consquence_description}</td>
-                    <td>{riskList.date_risk}</td>
-                    <td>{riskList.origin_risk}</td>
-                    <td>{riskList.nature_risk}</td>
-                    <td>{riskList.type_risk}</td>
-                    <td>{riskList.category}</td>
-                    <td>{riskList.visibility}</td>
-                    <td>{riskList.ownerLevel}</td>
-                    <td>{riskList.active}</td>
-                    <td>{riskList.detected}</td>
+                    <td>{element.id_risk}</td>
+                    <td>{element.risk_name}</td>
+                    <td>{element.description}</td>
+                    <td>
+                    <Accordion >
+                        <Accordion.Toggle as={Button} eventKey="1" variant ="link">
+                            Voir
+                        </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="1" >
+                            <ListGroup >
+                                <ListGroup.Item>
+                                    probabilité : {element.probability}
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    difficulté de detection : {element.detection_difficulty}
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    Vulnérabilité: {element.vulnerability}
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    Impact: {element.impact}
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    Description des conséquences: {element.consquence_description}
+                                </ListGroup.Item>
+                            </ListGroup>
+                        </Accordion.Collapse>
+                            </Accordion>
+                    </td>
+                    <td>{element.date_risk}</td>
+                    <td>{element.origin_risk}</td>
+                    <td>{element.nature_risk}</td>
+                    <td>{element.type_risk}</td>
+                    <td>{element.category}</td>
+                    <td>{element.visibility}</td>
+                    <td>{element.ownerLevel}</td>
+                    <td>{element.active}</td>
+                    <td>{element.detected}</td>
                     <td>
                         <Button variant="warning" onClick={() => editAction(element.id_risk)}>
                             <i className="fa fa-edit" />

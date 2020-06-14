@@ -41,6 +41,7 @@ function TeamMemberForm({ submitHandler }) {
                 <Form.Group as = {Col} md="4">
                     <Form.Label>Nom:</Form.Label>
                     <Form.Control
+                        required
                         type="text"
                         onBlur = {(e)=>handleUpdate("last_name",e.target.value)}
                     />

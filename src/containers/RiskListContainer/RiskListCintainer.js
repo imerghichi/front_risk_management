@@ -24,7 +24,7 @@ function RiskListContainer() {
     const showResponse = (id) => history.push("/showresponse/"+id);
 
     return (
-        <Loader loading={loading} error={error}>
+        <Loader loading={loading}>
             <RiskManagerTable
                 riskList={riskList}
                 editAction={editAction}

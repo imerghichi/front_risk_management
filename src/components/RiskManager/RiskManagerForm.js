@@ -111,7 +111,7 @@ function RiskManagerForm({submitHandler}) {
                 <Form.Group as = {Col} md="4">
                     <Form.Label>Probabilité:</Form.Label>
                     <Form.Control
-                        type="Range"
+                        type="number" step="0.01"
                         placeholder="probabilité du risque"
                         onBlur = {(e)=>handleUpdate("probability",e.target.value)}
                     />
@@ -121,7 +121,7 @@ function RiskManagerForm({submitHandler}) {
                 <Form.Group as = {Col} md="4">
                     <Form.Label>Difficulté de détection:</Form.Label>
                     <Form.Control
-                        type="Range"
+                        type="number" step="0.01"
                         placeholder="Difficulté de détection du risque"
                         onBlur = {(e)=>handleUpdate("detection_difficulty",e.target.value)}
                     />
@@ -131,7 +131,7 @@ function RiskManagerForm({submitHandler}) {
                 <Form.Group as = {Col} md="4">
                     <Form.Label>Vulnérabilité:</Form.Label>
                     <Form.Control
-                        type="Range"
+                        type="number" step="0.01"
                         placeholder="Vunlérabilité du risuqe"
                         onBlur = {(e)=>handleUpdate("vulnerability",e.target.value)}
                     />

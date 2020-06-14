@@ -1,8 +1,10 @@
-import {Button, DropdownItem} from "react-bootstrap";
+import {Button, DropdownItem, Modal} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import React, {useState} from "react";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import {useSelector} from "react-redux";
+import ActivityFormContainer from "../../containers/ActivityList Container/ActivityFormContainer";
+import RiskFormContainer from "../../containers/RiskListContainer/RiskFormContainer";
 
 function ActivityTable({ activityList, editAction,deleteAction, applyRejectionMethod, addRisk, showRisk }) {
     const mock = [{
@@ -12,7 +14,9 @@ function ActivityTable({ activityList, editAction,deleteAction, applyRejectionMe
 
         }
         ];
-    const [riskformmodal, setriskmodal]= useState();
+    const [riskformmodal, setriskmodal]= useState(false);
+    const handleShowrisk = () =>setriskmodal(true);
+    const handleCloserisk = ()=> setriskmodal(false);
 
     return (
         <Table >
@@ -55,8 +59,19 @@ function ActivityTable({ activityList, editAction,deleteAction, applyRejectionMe
                                 <DropdownItem as = "button" onClick ={()=>  showRisk(element.id_task_project)}>
                                     Voir
                                 </DropdownItem>
-                                <DropdownItem as = "button" onClick ={()=>  addRisk(element.id_task_project)}>
+                                <DropdownItem as = "button" onClick={handleShowrisk}>
                                     Ajouter
+                                </DropdownItem>
+                                <DropdownItem as = "button" onClick ={handleShowrisk}>
+                                <Modal show = {riskformmodal} onHide ={handleCloserisk}>
+                                        <Modal.Title>Ajouter Risque</Modal.Title>
+                                        <Modal.Body>
+                                            <RiskFormContainer/>
+                                        </Modal.Body>
+                                        <Modal.Footer>
+                                            <Button color="primary" onClick={handleCloserisk}>Annuler</Button>
+                                        </Modal.Footer>
+                                    </Modal>
                                 </DropdownItem>
                             </DropdownButton>
                         </td>

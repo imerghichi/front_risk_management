@@ -9,7 +9,7 @@ function Layout({ children }) {
                 <Navbar.Brand href="/">Risk Manager</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/project">Projets</Nav.Link>
-                    <Nav.Link href="/p">Configuration</Nav.Link>
+                    <Nav.Link href="/risks/">Risques</Nav.Link>
                     <Nav.Link href="/documentation">Documentation</Nav.Link>
                 </Nav>
             </Navbar>
