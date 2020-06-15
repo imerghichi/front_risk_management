@@ -30,6 +30,7 @@ export const activityListActions = {
         type: ACTIVITY_LIST_ACTION_TYPES.GET_ACTIVITY_LIST_ERROR,
         error: err
     }),
+
     postActivity: () => ({
         type: ACTIVITY_LIST_ACTION_TYPES.ADD_ACTIVITY,
     }),
@@ -40,6 +41,7 @@ export const activityListActions = {
         type: ACTIVITY_LIST_ACTION_TYPES.ADD_ACTIVITY_ERROR,
         error: err,
     }),
+
     getRiskforActivity: (id)=>({
         type: ACTIVITY_LIST_ACTION_TYPES.GET_RISK_FOR_ACTIVITY,
         id_activity : id,

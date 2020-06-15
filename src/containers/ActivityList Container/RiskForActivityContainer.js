@@ -10,17 +10,14 @@ import {activityListActions} from "./redux/actions";
 function RiskforActivityContainer() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const id = useParams()["0"];
-    const id_activity = useSelector(id_activitySelector);
-
-
+    const { id } = useParams();
 
     const riskList = useSelector(riskforactivitySelector);
     const loading = useSelector(riskforactivityLoadingSelector);
     const error = useSelector(riskforactivityLoadingSelector);
 
     useEffect(() => {
-        dispatch(activityListActions.getRiskforActivity());
+        if (id) dispatch(activityListActions.getRiskforActivity(id));
     }, [dispatch]);
 
     const editAction = (id) => history.push("/editrisk/"+id);
@@ -28,7 +25,7 @@ function RiskforActivityContainer() {
     const showResponse = (id) => history.push("/showresponse/"+id);
 
     return (
-        <Loader loading={loading} error={error}>
+        <Loader loading={loading} error={error} noData={!Number(id)}>
             <RiskManagerTable
                 riskList={riskList}
                 editAction={editAction}

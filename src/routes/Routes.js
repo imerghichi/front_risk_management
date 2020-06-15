@@ -23,7 +23,7 @@ function Routes() {
                     <Route exact path="/addRisktoavctivity/" component={RiskFormContainer}/>
                     <Route exact path= "/activities/*" component={ActivityListForProject}/>
                     <Route exact path="/risks/" component={RiskListContainer}/>
-                    <Route exact path="/showRisk/*" component={RiskforActivityContainer}/>
+                    <Route exact path="/showRisk/:id" component={RiskforActivityContainer}/>
                 </Switch>
             </Layout>
         </Router>
