@@ -10,9 +10,9 @@ function DashboardContainer() {
 
     const history = useHistory();
 
-    const blackRex = () => history.push("/blackRex");
-    const seiList = () =>history.push("/seilist/");
-    const johnCList = () =>history.push("/johnC/");
+    const blackRex = () => history.push("/rexBlack");
+    const seiList = () =>history.push("/sei");
+    const johnCList = () =>history.push("/caperJones");
     return (
         <div>
             <Row md={2}>

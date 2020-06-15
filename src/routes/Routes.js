@@ -12,6 +12,9 @@ import RiskListContainer from "../containers/RiskListContainer/RiskListCintainer
 import RiskforActivityContainer from "../containers/ActivityList Container/RiskForActivityContainer";
 import DashboardContainer from "../containers/DashboardContainer/DashboardContainer";
 import CaperJones from "../containers/Artefacts/CaperJones";
+import ResponseForm from "../components/Forms/ResponseForm";
+import RexBlack from "../containers/Artefacts/RexBlack";
+import SeiTaxonomieList from "../containers/Artefacts/SeiTaxonomieList";
 
 function Routes() {
     return (
@@ -23,6 +26,8 @@ function Routes() {
                     <Route exact path="/showrisks" component={RiskListContainer}/>
                     <Route exact path="/showtasks" component={ActivityListContainer}/>
                     <Route exact path="/caperJones" component={CaperJones}/>
+                    <Route exact path="/rexBlack" component={RexBlack}/>
+                    <Route exact path="/sei" component={SeiTaxonomieList}/>
                     <Route exact path="/taxo/" component={TaxonomieChart}/>
                     <Route exact path="/faultTreeForm/" component={FaultTreeFormContainer}/>
                     <Route exact path="/showTasks/" component={ActivityListContainer}/>
