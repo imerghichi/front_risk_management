@@ -11,7 +11,6 @@ function RiskforActivityContainer() {
     const dispatch = useDispatch();
     const history = useHistory();
     const id = useParams()["0"];
-    console.log("nunu", id);
     const id_activity = useSelector(id_activitySelector);
 
 
