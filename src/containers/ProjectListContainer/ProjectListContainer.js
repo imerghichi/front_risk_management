@@ -25,8 +25,7 @@ function ProjectListContainer() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const projectList = mock;
-    // const projectList = useSelector(projectListSelector);
+    const projectList = useSelector(projectListSelector);
     const loading = useSelector(projectListLoadingSelector);
     const error = useSelector(projectListErrorSelector);
 
