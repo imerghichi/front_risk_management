@@ -82,7 +82,7 @@ function ActivityForm({ formInitialState,submitHandler }) {
             </Form.Row>
             <Form.Row>
                 <Form.Group as = {Col} md="4">
-                    <Form.Label>Description:</Form.Label>
+                    <Form.Label>Parametre:</Form.Label>
                     <Form.Control
                         type="Number"
                         placeholder="parametres de la distribution"
@@ -92,9 +92,9 @@ function ActivityForm({ formInitialState,submitHandler }) {
             </Form.Row>
             <Form.Row>
             <Form.Group as = {Col} md="4">
-                <Form.Label>Description:</Form.Label>
+                <Form.Label>Parametre:</Form.Label>
                 <Form.Control
-                    type="Range"
+                    type="Number"
                     placeholder="parametres de la distribution"
                     onBlur = {(e)=>handleUpdate("parametre2",e.target.value)}
                 />
@@ -104,7 +104,7 @@ function ActivityForm({ formInitialState,submitHandler }) {
             <Form.Group as = {Col} md="4">
                 <Form.Label>Description:</Form.Label>
                 <Form.Control
-                    type="Range"
+                    type="Number"
                     placeholder="parametres de la distribution"
                     onBlur = {(e)=>handleUpdate("parametre3",e.target.value)}
                 />

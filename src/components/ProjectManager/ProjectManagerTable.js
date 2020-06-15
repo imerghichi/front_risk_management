@@ -34,7 +34,6 @@ function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks,
 
         }
     ];
-    const list = projectList;
     const [modalTeamMember, setModalTeamMember] = useState(false);
     const handleCloseTM = () => setModalTeamMember(false);
     const handleShowTM = () =>setModalTeamMember(true);
@@ -79,7 +78,7 @@ function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks,
             </tr>
             </thead>
             <tbody>
-            {list.map((element) =>{
+            {projectList.map((element) =>{
                 return (
                     <tr>
                         <td>{element.id_project}</td>
