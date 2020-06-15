@@ -20,6 +20,21 @@ import TeamMemberFormContainer from "../../containers/TeamMemberListManager/Team
 import ActivityFormContainer from "../../containers/ActivityList Container/ActivityFormContainer";
 
 function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks, addTeamMember, addTasks, addPortfolio, simulate}) {
+    const mock =[
+        {
+            "id_project": 1,
+            "teamMember":[
+                {
+                    id:1
+                }
+            ]
+        },
+        {
+            "id_project": 2,
+
+        }
+    ];
+    const list = projectList;
     const [modalTeamMember, setModalTeamMember] = useState(false);
     const handleCloseTM = () => setModalTeamMember(false);
     const handleShowTM = () =>setModalTeamMember(true);
@@ -64,7 +79,7 @@ function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks,
             </tr>
             </thead>
             <tbody>
-            {projectList.map((element) =>{
+            {list.map((element) =>{
                 return (
                     <tr>
                         <td>{element.id_project}</td>

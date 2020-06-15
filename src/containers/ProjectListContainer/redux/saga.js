@@ -5,8 +5,9 @@ import { projectListActions, PROJECT_LIST_ACTION_TYPES } from './actions';
 
 export function* getProjectListSaga() {
     try {
-        const response = yield call(fetchApi, "/allproject");
+        const response = yield call(fetchApi, "/allproject/");
         yield put(projectListActions.getProjectListSuccess(response));
+        console.log("nunu", response);
     } catch (e) {
         yield put(projectListActions.getProjectListError(e));
     }

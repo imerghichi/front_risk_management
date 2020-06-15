@@ -2,7 +2,7 @@ import { PROJECT_LIST_ACTION_TYPES } from "./actions";
 const initalState = {
     project_id : "",
     activityListforProject:{},
-    projectList: {},
+    projectList: [],
     loading: false,
     success: false,
     error: null
