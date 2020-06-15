@@ -15,7 +15,7 @@ export function* getProjectListSaga() {
 export function* addProject(action) {
     try {
         const {project} = action;
-        const projectdetail = yield call(fetchApi, "/project",{
+        const projectdetail = yield call(fetchApi, "/postproject/",{
             method: "POST",
             body: JSON.stringify(project),
         });
