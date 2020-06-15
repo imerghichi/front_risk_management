@@ -2,14 +2,19 @@ import React, {useEffect} from 'react';
 import '../../assets/css/App.css';
 import {useDispatch, useSelector} from "react-redux";
 import Loader from "../../components/Loader/Loader";
-import {useHistory, useLocation} from "react-router";
+import {useHistory, useLocation, useParams} from "react-router";
 import RiskManagerTable from "../../components/RiskManager/RiskManagerTable";
-import {riskforactivityLoadingSelector, riskforactivitySelector} from "./redux/selectors";
+import {id_activitySelector, riskforactivityLoadingSelector, riskforactivitySelector} from "./redux/selectors";
 import {activityListActions} from "./redux/actions";
 
-function RiskListContainer() {
+function RiskforActivityContainer() {
     const dispatch = useDispatch();
     const history = useHistory();
+    const id = useParams()["0"];
+    console.log("nunu", id);
+    const id_activity = useSelector(id_activitySelector);
+
+
 
     const riskList = useSelector(riskforactivitySelector);
     const loading = useSelector(riskforactivityLoadingSelector);
@@ -35,4 +40,4 @@ function RiskListContainer() {
     );
 }
 
-export default RiskListContainer;
+export default RiskforActivityContainer;

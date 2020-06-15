@@ -11,9 +11,10 @@ export function* getActivityListSaga() {
         yield put(activityListActions.getActivityListError(e));
     }
 }
-export function* getRisksforActivitytSaga() {
+export function* getRisksforActivitytSaga(action) {
     try {
-        const response = yield call(fetchApi, "/activity");
+        const id_activity = action.id_activity;
+        const response = yield call(fetchApi, "/activity/"+ id_activity);
         yield put(activityListActions.getRiskforActivitySuccess(response));
     } catch (e) {
         yield put(activityListActions.getRiskforActivityError(e));

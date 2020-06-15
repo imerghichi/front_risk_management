@@ -32,3 +32,8 @@ export const riskforactivityLoadingSelector = createSelector(
     state => state[storeName],
     state =>state.loading
 ) ;
+export const id_activitySelector = createSelector(
+    state => state[storeName],
+    state =>state.id_activity,
+)
+
