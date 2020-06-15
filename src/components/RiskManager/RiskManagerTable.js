@@ -1,7 +1,8 @@
-import {Accordion, Button, Card, DropdownItem, ListGroup} from "react-bootstrap";
+import {Accordion, Button, Card, DropdownItem, ListGroup, Modal} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
-import React from "react";
+import React, {useState} from "react";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import ResponseForm from "../Forms/ResponseForm";
 
 function RiskManagerTable({ riskList, editAction, deleteAction,addResponse, showResponse }) {
     const mock = [{
@@ -10,6 +11,15 @@ function RiskManagerTable({ riskList, editAction, deleteAction,addResponse, show
         "id_risk": 2,
     }
     ];
+
+    const [responsemodal, setresponsemodal] = useState(false);
+    const handleshowresponse = () => setresponsemodal(true);
+    const handlecloseresponse = () => setresponsemodal(false);
+
+    const [responseForm,setResponseForm] = useState(false);
+    const handleShowForm = () => setResponseForm(true);
+    const handleCloseForm = () => setResponseForm(false);
+
     return (
         <Table striped bordered hover>
             <thead>
@@ -19,12 +29,7 @@ function RiskManagerTable({ riskList, editAction, deleteAction,addResponse, show
                 <th>Description</th>
                 <th>Conséquences</th>
                 <th>Date de risque</th>
-                <th>Origine</th>
-                <th>Nature</th>
-                <th>Type</th>
-                <th>Catégorie</th>
-                <th>Visibilité</th>
-                <th>Niveau du proprietaire</th>
+                <th>Categorisation</th>
                 <th>Actif?</th>
                 <th>Détecté?</th>
             </tr>
@@ -62,12 +67,35 @@ function RiskManagerTable({ riskList, editAction, deleteAction,addResponse, show
                             </Accordion>
                     </td>
                     <td>{element.date_risk}</td>
-                    <td>{element.origin_risk}</td>
-                    <td>{element.nature_risk}</td>
-                    <td>{element.type_risk}</td>
-                    <td>{element.category}</td>
-                    <td>{element.visibility}</td>
-                    <td>{element.ownerLevel}</td>
+                    <td>
+                    <Accordion >
+                        <Accordion.Toggle as={Button} eventKey="2" variant ="link">
+                            Voir
+                        </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="2" >
+                            <ListGroup >
+                                <ListGroup.Item>
+                                    Origine : {element.origin_risk}
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                     Nature : {element.nature_risk}
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    Type: {element.type_risk}
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    Catégorie: {element.category}
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    visibilité: {element.visibility}
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    Niveau Propriétaite: {element.ownerLevel}
+                                </ListGroup.Item>
+                            </ListGroup>
+                        </Accordion.Collapse>
+                    </Accordion>
+                    </td>
                     <td>{element.active}</td>
                     <td>{element.detected}</td>
                     <td>
@@ -84,12 +112,35 @@ function RiskManagerTable({ riskList, editAction, deleteAction,addResponse, show
                     </td>
                     <td>
                         <DropdownButton id="dropdown-basic-button" title="Reponse">
-                            <DropdownItem as = "button" onClick ={()=>  showResponse(element.id_risk)}>
+                            <DropdownItem as = "button" onClick ={handleshowresponse}>
                                 Voir
                             </DropdownItem>
-                            <DropdownItem as = "button" onClick ={()=>  addResponse(element.id_risk)}>
+                            <DropdownItem as = "button" onClick ={handleshowresponse}>
+                            <Modal show = {responsemodal}  onHide={handlecloseresponse}>
+                                <Modal.Title>Reponse </Modal.Title>
+                                <Modal.Body>
+                                    salaam
+                                </Modal.Body>
+                                <Modal.Footer>
+                                    <Button onClick={handlecloseresponse}>Fermer</Button>
+                                </Modal.Footer>
+                            </Modal>
+                            </DropdownItem>
+                            <DropdownItem as = "button" onClick ={handleShowForm}>
                                 Ajouter
                             </DropdownItem>
+                                <DropdownItem as="button" onClick={handleShowForm}>
+                                    <Modal show={responseForm}  onHide ={handleCloseForm}>
+                                        <Modal.Title>ajouter </Modal.Title>
+                                        <Modal.Body>
+                                        <ResponseForm/>
+                                        </Modal.Body>
+
+                                        <Modal.Footer>
+                                            <Button onClick={handleCloseForm}>Fermer</Button>
+                                        </Modal.Footer>
+                                    </Modal>
+                                </DropdownItem>
                         </DropdownButton>
                     </td>
                 </tr>

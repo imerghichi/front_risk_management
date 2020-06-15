@@ -51,13 +51,8 @@ function TaxonomieChart({ frequencies}) {
     };
 
     return (
-            <div>
-                <h2>Taxonomie</h2>
                 <Bar data={data} legend={null} />
-                <div>
 
-                </div>
-        </div>
         );
 }
 

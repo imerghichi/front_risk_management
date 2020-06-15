@@ -17,15 +17,16 @@ import {contingencyPlanListActions} from "../ContingencyPlanContainer/redux/acti
 
 function ActivityListForProject() {
     const dispatch = useDispatch();
-    const project_id = useParams();
     const history = useHistory();
+
+    const { id } = useParams();
 
     const activitiesforProject = useSelector(activitiesforporjectSelector);
     const loading = useSelector(activityListLoadingSelector);
     const error = useSelector(activitiesforprojectErrorSelector);
 
     useEffect(() => {
-        dispatch(projectListActions.getActivitiesforProject());
+        if (id) dispatch(projectListActions.getActivitiesforProject(id));
     }, [dispatch]);
 
     const editAction = (id) => history.push("/editactivity/" + id);
@@ -34,7 +35,7 @@ function ActivityListForProject() {
     const addRisk = (id) =>history.push("/addRisktoavctivity/");
     const showRisk = (id)=>history.push("/showRisk/"+id);
     return (
-        <Loader loading={loading} >
+        <Loader loading={loading} error={error}  noData={!Number(id)}>
             <ActivityTable
                 activityList={activitiesforProject}
                 editAction={editAction}

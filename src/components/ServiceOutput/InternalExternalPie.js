@@ -5,13 +5,15 @@ import {Pie} from "react-chartjs-2";
 
 function InternalExternalPie({frequencies}) {
 
+    const mock = [2,3];
+
     const data = {
         labels: [
             'Externe',
             'Interne'
         ],
         datasets: [{
-            data: frequencies,
+            data: mock,
             backgroundColor: [
                 '#FF6384',
                 '#36A2EB',

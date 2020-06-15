@@ -10,20 +10,26 @@ import TaxonomieChart from "../components/ServiceOutput/TaxonomyChart";
 import ActivityListForProject from "../containers/ProjectListContainer/ActivityListForProject";
 import RiskListContainer from "../containers/RiskListContainer/RiskListCintainer";
 import RiskforActivityContainer from "../containers/ActivityList Container/RiskForActivityContainer";
+import DashboardContainer from "../containers/DashboardContainer/DashboardContainer";
+import CaperJones from "../containers/Artefacts/CaperJones";
 
 function Routes() {
     return (
         <Router history={history}>
             <Layout>
                 <Switch>
-                    <Route exact path="/project" component={ProjectListContainer} />
+                    <Route exact path="/" component={DashboardContainer}/>
+                    <Route exact path="/showprojects" component={ProjectListContainer} />
+                    <Route exact path="/showrisks" component={RiskListContainer}/>
+                    <Route exact path="/showtasks" component={ActivityListContainer}/>
+                    <Route exact path="/caperJones" component={CaperJones}/>
                     <Route exact path="/taxo/" component={TaxonomieChart}/>
                     <Route exact path="/faultTreeForm/" component={FaultTreeFormContainer}/>
                     <Route exact path="/showTasks/" component={ActivityListContainer}/>
                     <Route exact path="/addRisktoavctivity/" component={RiskFormContainer}/>
                     <Route exact path= "/activities/*" component={ActivityListForProject}/>
                     <Route exact path="/risks/" component={RiskListContainer}/>
-                    <Route exact path="/showRisk/:id" component={RiskforActivityContainer}/>
+                    <Route exact path="/showRisk/*" component={RiskforActivityContainer}/>
                 </Switch>
             </Layout>
         </Router>
