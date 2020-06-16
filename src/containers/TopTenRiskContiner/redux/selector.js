@@ -6,17 +6,17 @@ export const topRiskSelector = createSelector(
     state => state.topRisk
 );
 
-export const activityListSuccessSelector = createSelector(
+export const topRiskSuccessSelector = createSelector(
     state => state[storeName],
     state => state.success
 );
 
-export const activityListErrorSelector = createSelector(
+export const topRiskErrorSelector = createSelector(
     state => state[storeName],
     state => state.error
 );
 
-export const activityListLoadingSelector = createSelector(
+export const topRiskLoadingSelector = createSelector(
     state => state[storeName],
     state => state.loading
 );
