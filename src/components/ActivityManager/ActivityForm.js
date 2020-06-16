@@ -21,13 +21,13 @@ function ActivityForm({ formInitialState,submitHandler }) {
                 newFormState.distribution = newValue;
                 break;
             case "parametre1":
-                newFormState.parametre1 = newValue;
+                newFormState.parametre1 = Number(newValue);
                 break;
             case "parametre2":
-                newFormState.parametre2 = newValue;
+                newFormState.parametre2 = Number(newValue);
                 break;
             case "parametre3":
-                newFormState.parametre3 = newValue;
+                newFormState.parametre3 = Number(newValue);
                 break;
             default:
                 break;
