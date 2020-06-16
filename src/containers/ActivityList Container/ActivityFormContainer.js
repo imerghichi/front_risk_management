@@ -3,11 +3,11 @@ import {activityListActions} from "./redux/actions";
 import ActivityForm from "../../components/ActivityManager/ActivityForm";
 import {useDispatch} from "react-redux";
 
-function ActivityFormContainer() {
+function ActivityFormContainer({ idProject }) {
     const dispatch = useDispatch();
 
     const submitHandler = (vals) => {
-        dispatch(activityListActions.postActivity(vals));
+        dispatch(activityListActions.postActivity(idProject, vals));
     };
     const formInitialState = {
         task_name : "",

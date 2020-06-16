@@ -20,20 +20,6 @@ import TeamMemberFormContainer from "../../containers/TeamMemberListManager/Team
 import ActivityFormContainer from "../../containers/ActivityList Container/ActivityFormContainer";
 
 function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks, addTeamMember, addTasks, addPortfolio, simulate}) {
-    const mock =[
-        {
-            "id_project": 1,
-            "teamMember":[
-                {
-                    id:1
-                }
-            ]
-        },
-        {
-            "id_project": 2,
-
-        }
-    ];
     const list = projectList;
     const [modalTeamMember, setModalTeamMember] = useState(false);
     const handleCloseTM = () => setModalTeamMember(false);
@@ -142,25 +128,24 @@ function ProjectManagerTable({ projectList, editAction, deleteAction, showTasks,
 
                         <td>
                             <DropdownButton id="dropdown-basic-button" title="Tache">
-                            <DropdownItem as = "button" onClick={()=> showTasks(element.id_project)}>
-                                Voir
-                            </DropdownItem>
+                                <DropdownItem as = "button" onClick={()=> showTasks(element.id_project)}>
+                                    Voir
+                                </DropdownItem>
                                 <DropdownItem as = "button" onClick ={handleShowAddTask}>
                                     Ajouter
                                 </DropdownItem>
-                                <DropdownItem as = "button" onClick ={handleShowAddTask}>
-                                    <Modal show = {modalAddTask} onHide ={handleCloseAddTask}>
-                                        <Modal.Title>Ajouter Tache</Modal.Title>
-                                        <Modal.Body>
-                                            <ActivityFormContainer/>
-                                        </Modal.Body>
-                                        <Modal.Footer>
-                                            <Button color="primary" onClick={handleCloseAddTask}>Annuler</Button>
-                                        </Modal.Footer>
-                                    </Modal>
-                                </DropdownItem>
-
                             </DropdownButton>
+                            <Modal show = {modalAddTask} onHide ={handleCloseAddTask}>
+                                <div style={{padding: "30px"}}>
+                                    <Modal.Title>Ajouter Tache</Modal.Title>
+                                    <Modal.Body>
+                                        <ActivityFormContainer idProject={element.id_project} />
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button color="primary" onClick={handleCloseAddTask}>Annuler</Button>
+                                    </Modal.Footer>
+                                </div>
+                            </Modal>
                         </td>
                         <td>
                             <DropdownButton id="dropdown-basic-button" title="Portfolio">

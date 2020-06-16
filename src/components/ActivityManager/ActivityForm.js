@@ -38,7 +38,7 @@ function ActivityForm({ formInitialState,submitHandler }) {
     return (
         <Form noValidate validated={true}>
             <Form.Row>
-                <Form.Group as = {Col} md="4">
+                <Form.Group as = {Col} md="12">
                     <Form.Label>Titre de l'activité:</Form.Label>
                     <Form.Control
                         required
@@ -49,17 +49,17 @@ function ActivityForm({ formInitialState,submitHandler }) {
                 </Form.Group>
             </Form.Row>
             <Form.Row>
-                <Form.Group as = {Col} md="4">
+                <Form.Group as = {Col} md="12">
                     <Form.Label>Description:</Form.Label>
                     <Form.Control
-                        type="text"
+                        as="textarea"
                         placeholder="Entrer une description"
                         onBlur = {(e)=>handleUpdate("description",e.target.value)}
                     />
                 </Form.Group>
             </Form.Row>
             <Form.Row>
-                <Form.Group as = {Col} md="4">
+                <Form.Group as = {Col} md="12">
                     <Form.Label>Distribution:</Form.Label>
                     <Form.Control
                         as="select"
@@ -81,8 +81,8 @@ function ActivityForm({ formInitialState,submitHandler }) {
                 </Form.Group>
             </Form.Row>
             <Form.Row>
-                <Form.Group as = {Col} md="4">
-                    <Form.Label>Description:</Form.Label>
+                <Form.Group as = {Col} md="12">
+                    <Form.Label>Paramètre 1:</Form.Label>
                     <Form.Control
                         type="Number"
                         placeholder="parametres de la distribution"
@@ -91,20 +91,20 @@ function ActivityForm({ formInitialState,submitHandler }) {
                 </Form.Group>
             </Form.Row>
             <Form.Row>
-            <Form.Group as = {Col} md="4">
-                <Form.Label>Description:</Form.Label>
+            <Form.Group as = {Col} md="12">
+                <Form.Label>Paramètre 2:</Form.Label>
                 <Form.Control
-                    type="Range"
+                    type="Number"
                     placeholder="parametres de la distribution"
                     onBlur = {(e)=>handleUpdate("parametre2",e.target.value)}
                 />
             </Form.Group>
         </Form.Row>
             <Form.Row>
-            <Form.Group as = {Col} md="4">
-                <Form.Label>Description:</Form.Label>
+            <Form.Group as = {Col} md="12">
+                <Form.Label>Paramètre 3:</Form.Label>
                 <Form.Control
-                    type="Range"
+                    type="Number"
                     placeholder="parametres de la distribution"
                     onBlur = {(e)=>handleUpdate("parametre3",e.target.value)}
                 />

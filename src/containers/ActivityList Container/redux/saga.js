@@ -23,10 +23,10 @@ export function* getRisksforActivitytSaga(action) {
 
 export function* addActivity(action) {
     try {
-        const {activity} = action;
-        const activityDetails = yield call(fetchApi, "/",{
+        const { idProject, activityData } = action;
+        yield call(fetchApi, "/actsforproject/" + idProject,{
             method: "POST",
-            body: JSON.stringify(activity),
+            body: JSON.stringify(activityData),
         });
         yield put(activityListActions.postActivitySuccess());
     } catch (e) {

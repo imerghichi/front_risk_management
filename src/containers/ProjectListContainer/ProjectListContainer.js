@@ -27,10 +27,11 @@ function ProjectListContainer() {
         }
     };
 
-    const editAction = (id) => history.push("/editproject/"+id);
-    const showTasks =(id) =>history.push("/showTasks/"+id);
-    const addTeamMember = (id) =>history.push("/addTM/"+id);
+    const showTasks =(id) =>history.push("/showTasks");
     const addTasks =(id) =>history.push("/addTask/"+id);
+
+    const editAction = (id) => history.push("/editproject/"+id);
+    const addTeamMember = (id) =>history.push("/addTM/"+id);
     const addPortfolio = (id) =>history.push("/addPortfolio/"+id);
     const simulatePortfolio = (id) => history.push("/simulate/"+id);
 

@@ -31,8 +31,10 @@ export const activityListActions = {
         error: err
     }),
 
-    postActivity: () => ({
+    postActivity: (idProject, activityData) => ({
         type: ACTIVITY_LIST_ACTION_TYPES.ADD_ACTIVITY,
+        idProject,
+        activityData
     }),
     postActivitySuccess: () =>({
         type: ACTIVITY_LIST_ACTION_TYPES.ADD_ACTIVITY_SUCCESS,
