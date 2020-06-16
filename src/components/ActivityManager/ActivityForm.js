@@ -66,7 +66,7 @@ function ActivityForm({ formInitialState,submitHandler }) {
                         value={formState.distribution}
                         onChange={(e) =>handleUpdate("distribution", e.target.value)}
                     >
-                        <option value="Uniform">Uniforme</option>
+                        <option value="uniform">Uniforme</option>
                         <option value="Triangular">Triangulaire</option>
                         <option value="Gaussian">Gaussienne/Normale</option>
                         <option value="Exponential">Exponentielle</option>
